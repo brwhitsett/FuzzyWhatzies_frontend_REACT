@@ -1,5 +1,5 @@
 export default interface Session {
-  uid: number;
+  uid: string;
   name: string;
   difficulty: string;
   speed: number;
