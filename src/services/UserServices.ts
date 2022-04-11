@@ -8,5 +8,5 @@ export const getUserData = async (): Promise<User[]> => {
 };
 
 export const sendNewUserData = async (newUser: User): Promise<User> => {
-  return (await axios.post(`${baseURL}/leaderboard/test`, newUser)).data;
+  return (await axios.post(`${baseURL}/leaderboard/`, newUser)).data;
 };
