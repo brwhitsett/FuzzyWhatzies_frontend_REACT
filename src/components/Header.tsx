@@ -8,16 +8,15 @@ import "./Header.css";
 const Header = () => {
   const { user } = useContext(AuthContext);
 
-  const checkUser = getSingleUserData(user?.uid!);
-
-  //   useEffect(() => {
-  //     console.log(checkUser);
-  // if(checkUser
-  //    !== user?.uid!)
-  //we need to find a way to get UID from checkUser object.
-  //     sendNewUserData(user?.uid!);
-  //     console.log(user?.uid!);
-  //   }, [user]);
+  useEffect(() => {
+    if (user) {
+      getSingleUserData(user?.uid!).then((response) => {
+        if (!response) {
+          sendNewUserData(user?.uid!, user?.displayName!).then(() => {});
+        }
+      });
+    }
+  }, [user]);
 
   return (
     <header className="Header">

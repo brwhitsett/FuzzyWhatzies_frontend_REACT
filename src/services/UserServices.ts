@@ -9,12 +9,20 @@ export const getUserData = async (): Promise<User[]> => {
 };
 
 export const getSingleUserData = async (uid: string): Promise<User> => {
-  return await axios.get(`${baseURL}/leaderboard/${uid}`);
+  return (await axios.get(`${baseURL}/leaderboard/${encodeURIComponent(uid)}`))
+    .data;
 };
 
-export const sendNewUserData = async (uid: string): Promise<User> => {
-  return (await axios.post(`${baseURL}/leaderboard/${encodeURIComponent(uid)}`))
-    .data;
+export const sendNewUserData = async (
+  uid: string,
+  displayName: string
+): Promise<User> => {
+  return (
+    await axios.post(
+      `${baseURL}/leaderboard/${encodeURIComponent(uid)}`,
+      displayName
+    )
+  ).data;
 };
 
 export const updateUserData = async (
