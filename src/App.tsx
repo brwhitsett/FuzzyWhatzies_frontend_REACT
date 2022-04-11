@@ -5,6 +5,7 @@ import {
   Routes,
 } from "react-router-dom";
 import Header from "./components/Header";
+import HowTo from "./components/HowTo";
 import LeaderBoardRoute from "./components/LeaderBoardRoute";
 import MainRoute from "./components/MainRoute";
 import NewGameRoute from "./components/NewGameRoute";
@@ -15,7 +16,9 @@ function App() {
       <Router>
         <Header />
         <Routes>
+          <Route path="/" element={<MainRoute />} />
           <Route path="/game" element={<NewGameRoute />} />
+          <Route path="/howto" element={<HowTo />} />
           <Route path="/leaderboard" element={<LeaderBoardRoute />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
