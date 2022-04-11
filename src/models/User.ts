@@ -1,7 +1,7 @@
 export default interface User {
   _id?: string;
   uid: string;
-  name: string;
+  displayName: string;
   eC: number;
   eI: number;
   eT: number;
