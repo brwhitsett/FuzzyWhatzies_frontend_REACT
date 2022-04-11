@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header";
 import MainRoute from "./components/MainRoute";
+import NewGameRoute from "./components/NewGameRoute";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainRoute />} />
-
+          <Route path="/game" element={<NewGameRoute />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
