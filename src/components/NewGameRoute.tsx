@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./NewGameRoute.css";
+import QuestionCard from "./QuestionCard";
 
 const NewGameRoute = () => {
   const [difficulty, setDifficulty] = useState("");
@@ -7,18 +8,14 @@ const NewGameRoute = () => {
 
   return (
     <div className="NewGameRoute">
-      <h2>New Game</h2>
       <ul>
-        {/* {Start of speed buttons} */}
-
-        {console.log(speed)}
-        {console.log(difficulty)}
         {!difficulty && (
           <>
+            <h2>Select Difficulty</h2>
             <li>
               <button onClick={() => setDifficulty("easy")}>Easy</button>
             </li>
-            <p>Type</p>
+            <p>Animal Type</p>
             <li>
               <button onClick={() => setDifficulty("medium")}>Medium</button>
             </li>
@@ -35,28 +32,29 @@ const NewGameRoute = () => {
         )}
         {!speed && difficulty && (
           <>
-            {" "}
+            <h2>Select Speed</h2>
             <li>
               <button onClick={() => setSpeed("unlimited")}>Unlimited</button>
             </li>
-            <p>Type</p>
+            <p>No Time Limit</p>
             <li>
               <button onClick={() => setSpeed("tortise")}>Tortise</button>
             </li>
-            <p>Easy + Active Time</p>
+            <p>45 Second Time Limit</p>
             <li>
               <button onClick={() => setSpeed("Cheetah")}>Cheetah</button>
             </li>
-            <p>Medium + Name</p>
+            <p>30 Second Time Limit</p>
             <li>
               <button onClick={() => setSpeed("falcon")}>
                 Peregrine Falcon
               </button>
             </li>
-            <p>Hard + Latin Name</p>
+            <p>15 Second Time Limit</p>
           </>
         )}
       </ul>
+      {difficulty && speed && <QuestionCard />}
     </div>
   );
 };
