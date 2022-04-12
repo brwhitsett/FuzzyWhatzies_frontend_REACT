@@ -13,19 +13,19 @@ const NewGameRoute = () => {
           <>
             <h2>Select Difficulty</h2>
             <li>
-              <button onClick={() => setDifficulty("easy")}>Easy</button>
+              <button onClick={() => setDifficulty("Easy")}>Easy</button>
             </li>
             <p>Animal Type</p>
             <li>
-              <button onClick={() => setDifficulty("medium")}>Medium</button>
+              <button onClick={() => setDifficulty("Medium")}>Medium</button>
             </li>
             <p>Easy + Active Time</p>
             <li>
-              <button onClick={() => setDifficulty("hard")}>Hard</button>
+              <button onClick={() => setDifficulty("Hard")}>Hard</button>
             </li>
             <p>Medium + Name</p>
             <li>
-              <button onClick={() => setDifficulty("insanus")}>Insanus</button>
+              <button onClick={() => setDifficulty("Insanus")}>Insanus</button>
             </li>
             <p>Hard + Latin Name</p>
           </>
@@ -34,11 +34,11 @@ const NewGameRoute = () => {
           <>
             <h2>Select Speed</h2>
             <li>
-              <button onClick={() => setSpeed("unlimited")}>Unlimited</button>
+              <button onClick={() => setSpeed("Unlimited")}>Unlimited</button>
             </li>
             <p>No Time Limit</p>
             <li>
-              <button onClick={() => setSpeed("tortise")}>Tortise</button>
+              <button onClick={() => setSpeed("Tortise")}>Tortise</button>
             </li>
             <p>45 Second Time Limit</p>
             <li>
@@ -46,7 +46,7 @@ const NewGameRoute = () => {
             </li>
             <p>30 Second Time Limit</p>
             <li>
-              <button onClick={() => setSpeed("falcon")}>
+              <button onClick={() => setSpeed("Peregrine Falcon")}>
                 Peregrine Falcon
               </button>
             </li>
@@ -54,7 +54,9 @@ const NewGameRoute = () => {
           </>
         )}
       </ul>
-      {difficulty && speed && <QuestionCard />}
+      {difficulty && speed && (
+        <QuestionCard difficulty={difficulty} speed={speed} />
+      )}
     </div>
   );
 };
