@@ -1,14 +1,17 @@
+import { useContext } from "react";
+import User from "../models/User";
 import "./Score.css";
 
-// interface Props {
-//   userData: User;
-// }
+interface Props {
+  userScore: User;
+}
 
-const Score = () => {
+const Score = ({ userScore }: Props) => {
   return (
     <li className="Score">
-      <p>{}</p>
-      <p></p>
+      <p>{userScore.displayName}</p>
+      <p>{userScore.tC}</p>
+      <p>{userScore.tT}</p>
     </li>
   );
 };
