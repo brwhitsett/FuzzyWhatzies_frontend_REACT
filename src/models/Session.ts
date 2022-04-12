@@ -1,8 +1,8 @@
 export default interface Session {
   uid: string;
-  name: string;
+  displayName: string;
   difficulty: string;
-  speed: number;
+  speed: string;
   correct: number;
   incorrect: number;
   total: number;
