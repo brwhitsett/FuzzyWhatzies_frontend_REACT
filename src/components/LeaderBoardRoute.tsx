@@ -3,19 +3,28 @@ import User from "../models/User";
 import "./LeaderBoardRoute.css";
 import { getUserData } from "../services/UserServices";
 import Score from "./Score";
+import PercentScore from "./PercentScore";
 const LeaderBoardRoute = () => {
-  const [userData, setUserData] = useState<User[]>([]);
+  const [userScores, setUserScores] = useState<User[]>([]);
+  const [userPercentScores, setUserPercentScores] = useState<User[]>([]);
 
-  const getAndSetUserData = async () => {
+  const getAndSetUserScores = async () => {
     getUserData().then((response) => {
-      setUserData(response);
+      setUserScores(response);
       console.log(response);
     });
   };
 
+  const getAndSetUserPercentScores = async () => {
+    getUserData().then((response) => {
+      setUserPercentScores(response);
+    });
+  };
+
   useEffect(() => {
-    getAndSetUserData();
-    console.log(getAndSetUserData());
+    getAndSetUserScores().then(() => {});
+    console.log(getAndSetUserScores());
+    getAndSetUserPercentScores().then(() => {});
   }, []);
 
   return (
@@ -24,25 +33,19 @@ const LeaderBoardRoute = () => {
 
       <h2>Lifetime Total Questions Correct</h2>
       <div>
-        <ol>
-          <li>
-            <p>Brittany</p>
-            <p>675 questions correct</p>
-          </li>
-          <li>
-            TODO make these dynamic and pull list items from collection in
-            database
-          </li>
-          <li>
-            <Score />
-          </li>
-        </ol>
+        <ul>
+          {userScores.map((userScore) => (
+            <Score userScore={userScore} />
+          ))}
+        </ul>
       </div>
       <h2>Lifetime % Correct</h2>
       <div>
-        <ol>
-          <li>TODO make these dynamic pull in from leaderboard</li>
-        </ol>
+        <ul>
+          {userPercentScores.map((userPercentScore) => (
+            <PercentScore userPercentScore={userPercentScore} />
+          ))}
+        </ul>
       </div>
     </div>
   );

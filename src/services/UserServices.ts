@@ -18,10 +18,9 @@ export const sendNewUserData = async (
   displayName: string
 ): Promise<User> => {
   return (
-    await axios.post(
-      `${baseURL}/leaderboard/${encodeURIComponent(uid)}`,
-      displayName
-    )
+    await axios.post(`${baseURL}/leaderboard/${encodeURIComponent(uid)}`, {
+      displayName,
+    })
   ).data;
 };
 
