@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import "./HowTo.css";
+import "./HowToRoute.css";
 
-const HowTo = () => {
+const HowToRoute = () => {
   const navigate = useNavigate();
   return (
-    <div className="HowTo">
+    <div className="HowToRoute">
       <button onClick={() => navigate("/")}>Back</button>
       <h2>How to Play:</h2>
       <h3>The Goal:</h3>
@@ -23,4 +23,4 @@ const HowTo = () => {
   );
 };
 
-export default HowTo;
+export default HowToRoute;
