@@ -5,10 +5,11 @@ import {
   Routes,
 } from "react-router-dom";
 import Header from "./components/Header";
-import HowTo from "./components/HowTo";
+import HowToRoute from "./components/HowToRoute";
 import LeaderBoardRoute from "./components/LeaderBoardRoute";
 import MainRoute from "./components/MainRoute";
 import NewGameRoute from "./components/NewGameRoute";
+import StatsRoute from "./components/StatsRoute";
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainRoute />} />
-          <Route path="/howto" element={<HowTo />} />
+          <Route path="/howto" element={<HowToRoute />} />
           <Route path="/game" element={<NewGameRoute />} />
+          <Route path="/stats" element={<StatsRoute />} />
           <Route path="/leaderboard" element={<LeaderBoardRoute />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
