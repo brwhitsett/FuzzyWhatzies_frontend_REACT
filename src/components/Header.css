@@ -1,0 +1,20 @@
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header .header-link {
+  text-decoration: none;
+}
+
+.Header div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Header .fuzzy {
+  font-family: "Eater", cursive;
+}

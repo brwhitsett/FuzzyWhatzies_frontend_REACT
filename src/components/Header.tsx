@@ -20,8 +20,11 @@ const Header = () => {
 
   return (
     <header className="Header">
-      <Link to="/">
-        <h1>Fuzzie Whatsies</h1>
+      <Link className="header-link" to="/">
+        <h1>
+          <i className="fa-solid fa-paw"></i>{" "}
+          <span className="fuzzy"> Fuzzy </span>Whatzies
+        </h1>
       </Link>
       {user ? (
         <div>
