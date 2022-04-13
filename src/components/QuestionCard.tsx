@@ -11,7 +11,10 @@ interface Props {
 const QuestionCard = ({ difficulty, speed }: Props) => {
   const [animal, setAnimal] = useState<Animal>();
   const [timer, setTimer] = useState<number>();
-  const [questionEvaluation, setQuestionEvaluation] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const [type, setType] = useState<string>("");
+  const [active, setActive] = useState<string>("");
+  const [latinName, setLatinName] = useState<string>("");
 
   const getAndSetAnimal = () => {
     getSingleAnimal().then((response) => {
@@ -31,8 +34,29 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     }
   };
 
+  const checkAnswers = (difficulty: string): boolean => {
+    const easy: boolean = type === animal?.animal_type ? true : false;
+    const medium: boolean =
+      easy && active === animal?.active_time ? true : false;
+    const hard: boolean =
+      easy && medium && name === animal?.name ? true : false;
+    const insanus: boolean =
+      easy && medium && hard && latinName === animal?.latin_name ? true : false;
+
+    if (difficulty === "Easy") {
+      return easy;
+    } else if (difficulty === "Medium") {
+      return medium;
+    } else if (difficulty === "Hard") {
+      return hard;
+    } else {
+      return insanus;
+    }
+  };
+
   const submitHandler = (e: FormEvent): void => {
     e.preventDefault();
+    console.log(checkAnswers(difficulty));
   };
 
   useEffect(() => {
@@ -52,7 +76,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
       </div>
       <img src={animal?.image_link} alt="" />
 
-      <form>
+      <form onSubmit={submitHandler}>
         <p>{}</p>
         <h2>Whatsies?</h2>
 
@@ -64,7 +88,13 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
           </div>
         ) : (
           <div>
-            <input type="text" name="name" id="name" />
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
         )}
 
@@ -72,22 +102,58 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
         <div>
           <p>What Type of Animal?</p>
 
-          <input type="radio" name="type" id="amphibian" />
+          <input
+            type="radio"
+            name="type"
+            id="amphibian"
+            value="Amphibian"
+            onChange={(e) => setType(e.target.value)}
+          />
           <label htmlFor="amphibian">Amphibian</label>
 
-          <input type="radio" name="type" id="bird" />
+          <input
+            type="radio"
+            name="type"
+            id="bird"
+            value="Bird"
+            onChange={(e) => setType(e.target.value)}
+          />
           <label htmlFor="bird">Bird</label>
 
-          <input type="radio" name="type" id="fish" />
+          <input
+            type="radio"
+            name="type"
+            id="fish"
+            value="Fish"
+            onChange={(e) => setType(e.target.value)}
+          />
           <label htmlFor="fish">Fish</label>
 
-          <input type="radio" name="type" id="mammal" />
+          <input
+            type="radio"
+            name="type"
+            id="mammal"
+            value="Mammal"
+            onChange={(e) => setType(e.target.value)}
+          />
           <label htmlFor="mammal">Mammal</label>
 
-          <input type="radio" name="type" id="marsupial" />
+          <input
+            type="radio"
+            name="type"
+            id="marsupial"
+            value="Marsupial"
+            onChange={(e) => setType(e.target.value)}
+          />
           <label htmlFor="marsupial">Marsupial</label>
 
-          <input type="radio" name="type" id="reptile" />
+          <input
+            type="radio"
+            name="type"
+            id="reptile"
+            value="Reptile"
+            onChange={(e) => setType(e.target.value)}
+          />
           <label htmlFor="reptile">Reptile</label>
         </div>
 
@@ -103,11 +169,18 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
               type="radio"
               name="active_time"
               id="diurnal"
-              value={"Diurnal"}
+              value="Diurnal"
+              onChange={(e) => setActive(e.target.value)}
             />
             <label htmlFor="diurnal">Diurnal (Daytime)</label>
 
-            <input type="radio" name="active_time" id="nocturnal" />
+            <input
+              type="radio"
+              name="active_time"
+              id="nocturnal"
+              value="Nocturnal"
+              onChange={(e) => setActive(e.target.value)}
+            />
             <label htmlFor="nocturnal">Nocturnal (Nighttime)</label>
           </div>
         )}
@@ -116,15 +189,21 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
         <label htmlFor="latin_name">What is this Animal's Latin name?</label>
         {difficulty === "Insanus" ? (
           <div>
-            <input type="text" name="latin_name" id="latin_name" />
+            <input
+              type="text"
+              name="latin_name"
+              id="latin_name"
+              value={latinName}
+              onChange={(e) => setLatinName(e.target.value)}
+            />
           </div>
         ) : (
           <div>
             <p>{animal?.latin_name}</p>
           </div>
         )}
+        <button>Whatsie!</button>
       </form>
-      <button onSubmit={submitHandler}>Whatsie!</button>
     </div>
   );
 };
