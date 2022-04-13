@@ -38,19 +38,32 @@ const StatsRoute = () => {
       </select>
       <h2>Sessions</h2>
       <ul>
-        {user &&
-          userSessions.map(
-            (userSession) =>
-              user.displayName === userSession.displayName &&
-              userSession.difficulty === level && (
-                <li>
-                  <p>Name: {userSession.displayName}</p>
-                  <p>Difficulty: {userSession.difficulty}</p>
-                  <p>Speed: {userSession.speed}</p>
-                  <p>Correct: {userSession.correct}</p>
-                </li>
-              )
-          )}
+        {level === "Total" || level === ""
+          ? user &&
+            userSessions.map(
+              (userSession) =>
+                user.displayName === userSession.displayName && (
+                  <li>
+                    <p>Name: {userSession.displayName}</p>
+                    <p>Difficulty: {userSession.difficulty}</p>
+                    <p>Speed: {userSession.speed}</p>
+                    <p>Correct: {userSession.correct}</p>
+                  </li>
+                )
+            )
+          : user &&
+            userSessions.map(
+              (userSession) =>
+                user.displayName === userSession.displayName &&
+                userSession.difficulty === level && (
+                  <li>
+                    <p>Name: {userSession.displayName}</p>
+                    <p>Difficulty: {userSession.difficulty}</p>
+                    <p>Speed: {userSession.speed}</p>
+                    <p>Correct: {userSession.correct}</p>
+                  </li>
+                )
+            )}
       </ul>
     </div>
   );
