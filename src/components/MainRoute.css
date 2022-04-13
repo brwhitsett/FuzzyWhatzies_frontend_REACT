@@ -1,0 +1,32 @@
+.MainRoute {
+  font-family: "Eater", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.MainRoute h2 {
+  margin-top: 75px;
+}
+
+.MainRoute ul {
+  border: 2px black solid;
+  height: 500px;
+  width: 75%;
+  margin-top: 75px;
+}
+
+.MainRoute li {
+  border: 2px black solid;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MainRoute button {
+  height: 80px;
+  width: 300px;
+  margin: 25px;
+}

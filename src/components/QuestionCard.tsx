@@ -1,7 +1,11 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useRef, useState } from "react";
 import "./QuestionCard.css";
 import { getSingleAnimal } from "../services/AnimalServices";
+import { updateUserData } from "../services/UserServices";
 import Animal from "../models/Animal";
+import AuthContext from "../context/AuthContext";
+import { sendNewSessionData } from "../services/SessionServices";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   difficulty: string;
@@ -9,12 +13,17 @@ interface Props {
 }
 
 const QuestionCard = ({ difficulty, speed }: Props) => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [animal, setAnimal] = useState<Animal>();
   const [timer, setTimer] = useState<number>();
   const [name, setName] = useState<string>("");
   const [type, setType] = useState<string>("");
   const [active, setActive] = useState<string>("");
   const [latinName, setLatinName] = useState<string>("");
+  const [correct, setCorrect] = useState<number>(0);
+  const [incorrect, setIncorrect] = useState<number>(0);
+  const [total, setTotal] = useState<number>(0);
 
   const getAndSetAnimal = () => {
     getSingleAnimal().then((response) => {
@@ -54,15 +63,43 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     }
   };
 
+  const endSession = () => {
+    sendNewSessionData({
+      uid: user?.uid!,
+      displayName: user?.displayName!,
+      difficulty,
+      speed,
+      correct,
+      incorrect,
+      total,
+    });
+    navigate("/");
+  };
+
   const submitHandler = (e: FormEvent): void => {
     e.preventDefault();
+    updateUserData(user?.uid!, {
+      difficulty,
+      correct: checkAnswers(difficulty),
+    });
+    if (checkAnswers(difficulty)) {
+      setCorrect(correct + 1);
+    } else {
+      setIncorrect(incorrect + 1);
+    }
+    setTotal(total + 1);
+
+    setActive("");
+    setType("");
+    setLatinName("");
+    setName("");
     console.log(checkAnswers(difficulty));
   };
 
   useEffect(() => {
     getAndSetAnimal();
     getAndSetTimer();
-  }, []);
+  }, [total]);
 
   return (
     <div className="QuestionCard">
@@ -70,14 +107,12 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
         {difficulty} - {speed}
       </p>
       <div className="timer-container">
-        {" "}
         <p>Timer:</p>
         <p>{timer}</p>
       </div>
       <img src={animal?.image_link} alt="" />
 
       <form onSubmit={submitHandler}>
-        <p>{}</p>
         <h2>Whatsies?</h2>
 
         {/* Animal name */}
@@ -107,6 +142,8 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
             name="type"
             id="amphibian"
             value="Amphibian"
+            checked={type === "Amphibian"}
+            // onClick={setChecked(true)}
             onChange={(e) => setType(e.target.value)}
           />
           <label htmlFor="amphibian">Amphibian</label>
@@ -116,6 +153,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
             name="type"
             id="bird"
             value="Bird"
+            checked={type === "Bird"}
             onChange={(e) => setType(e.target.value)}
           />
           <label htmlFor="bird">Bird</label>
@@ -125,6 +163,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
             name="type"
             id="fish"
             value="Fish"
+            checked={type === "Fish"}
             onChange={(e) => setType(e.target.value)}
           />
           <label htmlFor="fish">Fish</label>
@@ -134,6 +173,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
             name="type"
             id="mammal"
             value="Mammal"
+            checked={type === "Mammal"}
             onChange={(e) => setType(e.target.value)}
           />
           <label htmlFor="mammal">Mammal</label>
@@ -143,6 +183,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
             name="type"
             id="marsupial"
             value="Marsupial"
+            checked={type === "Marsupial"}
             onChange={(e) => setType(e.target.value)}
           />
           <label htmlFor="marsupial">Marsupial</label>
@@ -152,6 +193,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
             name="type"
             id="reptile"
             value="Reptile"
+            checked={type === "Reptile"}
             onChange={(e) => setType(e.target.value)}
           />
           <label htmlFor="reptile">Reptile</label>
@@ -170,6 +212,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
               name="active_time"
               id="diurnal"
               value="Diurnal"
+              checked={active === "Diurnal"}
               onChange={(e) => setActive(e.target.value)}
             />
             <label htmlFor="diurnal">Diurnal (Daytime)</label>
@@ -179,6 +222,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
               name="active_time"
               id="nocturnal"
               value="Nocturnal"
+              checked={active === "Nocturnal"}
               onChange={(e) => setActive(e.target.value)}
             />
             <label htmlFor="nocturnal">Nocturnal (Nighttime)</label>
@@ -204,6 +248,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
         )}
         <button>Whatsie!</button>
       </form>
+      <button onClick={endSession}>End Session</button>
     </div>
   );
 };
