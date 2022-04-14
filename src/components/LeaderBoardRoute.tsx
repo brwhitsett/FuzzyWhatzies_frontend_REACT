@@ -33,19 +33,27 @@ const LeaderBoardRoute = () => {
 
       <h2>Lifetime Total Questions Correct</h2>
       <div>
-        <ul>
-          {userScores.map((userScore) => (
-            <Score userScore={userScore} />
-          ))}
-        </ul>
+        <ol>
+          {userScores
+            .sort((a, b) => {
+              return a.tC - b.tC;
+            })
+            .map((userScore) => <Score userScore={userScore} />)
+            .reverse()}
+        </ol>
       </div>
       <h2>Lifetime % Correct</h2>
       <div>
-        <ul>
-          {userPercentScores.map((userPercentScore) => (
-            <PercentScore userPercentScore={userPercentScore} />
-          ))}
-        </ul>
+        <ol>
+          {userPercentScores
+            .sort((a, b) => {
+              return a.tC / a.tT - b.tC / b.tT;
+            })
+            .map((userPercentScore) => (
+              <PercentScore userPercentScore={userPercentScore} />
+            ))
+            .reverse()}
+        </ol>
       </div>
     </div>
   );

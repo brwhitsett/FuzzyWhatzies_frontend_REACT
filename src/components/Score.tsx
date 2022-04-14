@@ -9,9 +9,9 @@ interface Props {
 const Score = ({ userScore }: Props) => {
   return (
     <li className="Score">
-      <p>{userScore.displayName}</p>
-      <p>{userScore.tC}</p>
-      <p>{userScore.tT}</p>
+      <p>Name: {userScore.displayName}</p>
+      <p>Total Correct: {userScore.tC}</p>
+      <p>Total Questions Completed: {userScore.tT}</p>
     </li>
   );
 };
