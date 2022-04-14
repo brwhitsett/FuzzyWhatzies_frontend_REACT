@@ -21,21 +21,35 @@ const Header = () => {
   return (
     <header className="Header">
       <Link className="header-link" to="/">
-        <h1>
-          <i className="fa-solid fa-paw"></i>{" "}
-          <span className="fuzzy"> Fuzzy </span>Whatzies
-        </h1>
+        <div className="title-border">
+          <h1>
+            <div className="circle"></div>
+            <div className="paw-print">
+              <i className="fa-solid fa-paw"></i>
+            </div>
+            <div className="fuzzy-whatzies">
+              <p className="fuzzy"> Fuzzy </p>
+              <p className="whatzies"> WHATZIES </p>
+            </div>
+          </h1>
+        </div>
       </Link>
-      {user ? (
-        <div>
-          <p>{user.displayName}</p>
-          <button onClick={signOut}>Sign Out</button>
-        </div>
-      ) : (
-        <div>
-          <button onClick={signInWithGoogle}>Sign In</button>
-        </div>
-      )}
+      <div className="google">
+        {user ? (
+          <div>
+            <p className="username">{user.displayName}</p>
+            <button className="google-btn" onClick={signOut}>
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          <div>
+            <button className="google-btn" onClick={signInWithGoogle}>
+              Sign In
+            </button>
+          </div>
+        )}
+      </div>
     </header>
   );
 };
