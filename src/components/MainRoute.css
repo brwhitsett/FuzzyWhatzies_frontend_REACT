@@ -1,32 +1,37 @@
 .MainRoute {
+  border: 2px black solid;
   font-family: "Eater", cursive;
+  display: inline-block;
+
+  background-color: #f0d2b7;
+  width: 75%;
+}
+
+.MainRoute h2 {
+  margin-top: 20px;
+}
+
+.MainRoute ul {
+  /* border: 2px black solid; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.MainRoute h2 {
-  margin-top: 75px;
-}
-
-.MainRoute ul {
-  border: 2px black solid;
   height: 500px;
   width: 75%;
-  margin-top: 75px;
+  margin: 40px 0px;
 }
 
 .MainRoute li {
   border: 2px black solid;
   list-style: none;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .MainRoute button {
-  height: 80px;
+  height: 100px;
   width: 300px;
-  margin: 25px;
+  margin: 15px 0px;
 }

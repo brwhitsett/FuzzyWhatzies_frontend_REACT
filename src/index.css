@@ -19,13 +19,8 @@ ul {
   /* font-family: "Eater", cursive; */
 }
 
-body {
-  /* background: url(../public/assets/favpng_leopard-pattern.png), red; */
+.index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-/* .index {
-  background-image: url(../public/assets/erik-mclean-0DqYWHY4GpA-unsplash.jpg);
-} */
-
-/* font-family: 'Eater', cursive;
-font-family: 'Inter', sans-serif; */
