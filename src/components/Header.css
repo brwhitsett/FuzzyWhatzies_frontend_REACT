@@ -19,26 +19,21 @@
     -5px 0 0 #453326;
 }
 
-.fuzzy-whatzies {
-  margin-left: 15px;
-  margin-top: 5px;
-  display: flex;
-  flex-direction: column;
-}
-
 .title-border {
   border: 2px solid black;
   border-radius: 74px;
-  width: 80%;
-  height: 30%;
   background-color: #59d6de;
   box-shadow: 2px 2px 5px black;
   margin-top: 60px;
   padding-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
   display: flex;
+  justify-content: center;
 }
 
 .fa-paw {
@@ -46,7 +41,10 @@ h1 {
   margin-left: -30px;
   font-size: 48px;
   color: #453326;
-  position: relative;
+  position: absolute;
+  left: 60%;
+  top: -90%;
+  z-index: 2;
 }
 
 .circle {
@@ -58,7 +56,8 @@ h1 {
   width: 35px;
   position: relative;
   top: 42px;
-  left: 15px;
+  left: -10%;
+  z-index: 1;
 }
 .username {
   display: none;
@@ -70,7 +69,7 @@ h1 {
   color: white;
   padding: 4px;
   font-size: 20px;
-  position: relative;
-  bottom: 180px;
-  right: -230px;
+  position: absolute;
+  top: 2%;
+  right: 5%;
 }
