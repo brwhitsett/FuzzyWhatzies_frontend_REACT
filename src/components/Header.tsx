@@ -23,10 +23,10 @@ const Header = () => {
       <Link className="header-link" to="/">
         <div className="title-border">
           <h1>
-            <div className="circle"></div>
-            <div className="paw-print">
+            <div className="circle">
               <i className="fa-solid fa-paw"></i>
             </div>
+
             <div className="fuzzy-whatzies">
               <p className="fuzzy"> Fuzzy </p>
               <p className="whatzies"> WHATZIES </p>
