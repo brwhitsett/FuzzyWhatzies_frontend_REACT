@@ -8,10 +8,25 @@ const NewGameRoute = () => {
 
   return (
     <div className="NewGameRoute">
+      {!difficulty && (
+        <>
+          <h2>Select Difficulty</h2>
+        </>
+      )}
+      {!speed && difficulty && (
+        <>
+          <h2>Select Speed</h2>
+        </>
+      )}
+      {difficulty && speed && (
+        <>
+          <h2>Whatsies?</h2>
+        </>
+      )}
+
       <ul>
         {!difficulty && (
           <>
-            <h2>Select Difficulty</h2>
             <li>
               <button onClick={() => setDifficulty("Easy")}>Easy</button>
             </li>
@@ -32,7 +47,6 @@ const NewGameRoute = () => {
         )}
         {!speed && difficulty && (
           <>
-            <h2>Select Speed</h2>
             <li>
               <button onClick={() => setSpeed("Unlimited")}>Unlimited</button>
             </li>
@@ -53,10 +67,10 @@ const NewGameRoute = () => {
             <p>15 Second Time Limit</p>
           </>
         )}
+        {difficulty && speed && (
+          <QuestionCard difficulty={difficulty} speed={speed} />
+        )}
       </ul>
-      {difficulty && speed && (
-        <QuestionCard difficulty={difficulty} speed={speed} />
-      )}
     </div>
   );
 };

@@ -1,3 +1,39 @@
+.QuestionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .QuestionCard img {
-  height: 250px;
+  height: 20vh;
+}
+
+.QuestionCard .type-question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.QuestionCard form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.QuestionCard .button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.QuestionCard button {
+  height: 5vh;
+  margin: 12.5px 0;
+}
+
+.QuestionCard .endSession-button {
+  background-color: #a45353;
+  font-size: 24px;
 }
