@@ -1,20 +1,76 @@
-.Header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .Header .header-link {
   text-decoration: none;
 }
 
-.Header div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.Header .fuzzy {
+  font-family: "Eater";
+  color: white;
+  font-size: 36px;
+  text-shadow: -5px -5px 0 #453326, 5px 0px 0 #453326, 0px -5px 0 #453326,
+    5px 0 0 #453326, 5px 5px 0 #453326, 0 5px 0 #453326, 0px 5px 0 #453326,
+    -5px 0 0 #453326;
 }
 
-.Header .fuzzy {
-  font-family: "Eater", cursive;
+.whatzies {
+  color: white;
+  font-size: 36px;
+  text-shadow: -5px -5px 0 #453326, 5px 0px 0 #453326, 0px -5px 0 #453326,
+    5px 0 0 #453326, 5px 5px 0 #453326, 0 5px 0 #453326, 0px 5px 0 #453326,
+    -5px 0 0 #453326;
+}
+
+.fuzzy-whatzies {
+  margin-left: 15px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-border {
+  border: 2px solid black;
+  border-radius: 74px;
+  width: 80%;
+  height: 30%;
+  background-color: #59d6de;
+  box-shadow: 2px 2px 5px black;
+  margin-top: 60px;
+  padding-bottom: 8px;
+}
+
+h1 {
+  display: flex;
+}
+
+.fa-paw {
+  margin-top: 30px;
+  margin-left: -30px;
+  font-size: 48px;
+  color: #453326;
+  position: relative;
+}
+
+.circle {
+  border: 1px solid #f0d2b7;
+  background-color: #f0d2b7;
+  padding: 2px;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  top: 42px;
+  left: 15px;
+}
+.username {
+  display: none;
+}
+
+.google-btn {
+  border-radius: 21px;
+  background-color: #453326;
+  color: white;
+  padding: 4px;
+  font-size: 20px;
+  position: relative;
+  bottom: 180px;
+  right: -230px;
 }
