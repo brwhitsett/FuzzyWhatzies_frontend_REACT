@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import Session from "../models/Session";
 import { getSessionData } from "../services/SessionServices";
 import "./StatsRoute.css";
 
 const StatsRoute = () => {
+  const navigate = useNavigate();
   const [level, setLevel] = useState("");
   const [userSessions, setUserSessions] = useState<Session[]>([]);
   const { user } = useContext(AuthContext);
@@ -21,7 +23,11 @@ const StatsRoute = () => {
 
   return (
     <div className="StatsRoute">
+      <button className="back-btn" onClick={() => navigate("/")}>
+        Back
+      </button>
       <select
+        className="difficulty-dropdown"
         name="difficulty-dropdown"
         id="difficulty-dropdown"
         onChange={(e) => setLevel(e.target.value)}
@@ -38,14 +44,14 @@ const StatsRoute = () => {
       </select>
       <h2>Sessions</h2>
       {user ? (
-        <ol>
+        <ol className="main-area">
           {level === "Total" || level === ""
             ? user &&
               userSessions
                 .map(
                   (userSession) =>
                     user.displayName === userSession.displayName && (
-                      <li>
+                      <li className="session-list">
                         <p>Name: {userSession.displayName}</p>
                         <p>Difficulty: {userSession.difficulty}</p>
                         <p>Speed: {userSession.speed}</p>
@@ -67,7 +73,7 @@ const StatsRoute = () => {
                   (userSession) =>
                     user.displayName === userSession.displayName &&
                     userSession.difficulty === level && (
-                      <li>
+                      <li className="session-list">
                         <p>Name: {userSession.displayName}</p>
                         <p>Difficulty: {userSession.difficulty}</p>
                         <p>Speed: {userSession.speed}</p>
