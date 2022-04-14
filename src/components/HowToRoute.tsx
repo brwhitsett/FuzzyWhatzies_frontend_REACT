@@ -5,7 +5,9 @@ const HowToRoute = () => {
   const navigate = useNavigate();
   return (
     <div className="HowToRoute">
-      <button onClick={() => navigate("/")}>Back</button>
+      <button className="back-btn" onClick={() => navigate("/")}>
+        Back
+      </button>
       <h2>How to Play:</h2>
       <h3>The Goal:</h3>
       <p>
