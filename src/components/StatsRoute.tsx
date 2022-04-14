@@ -42,12 +42,13 @@ const StatsRoute = () => {
         <option value="Insanus">Insanus</option>
         <option value="Total">Total</option>
       </select>
-      <h2>Sessions</h2>
+      <h2>Last 3 Sessions</h2>
       {user ? (
         <ol className="main-area">
           {level === "Total" || level === ""
             ? user &&
               userSessions
+                .slice(0, 3)
                 .map(
                   (userSession) =>
                     user.displayName === userSession.displayName && (
@@ -69,6 +70,7 @@ const StatsRoute = () => {
                 .reverse()
             : user &&
               userSessions
+                .slice(0, 3)
                 .map(
                   (userSession) =>
                     user.displayName === userSession.displayName &&
