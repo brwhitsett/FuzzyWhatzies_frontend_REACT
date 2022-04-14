@@ -33,6 +33,7 @@
 
 h1 {
   display: flex;
+  justify-content: center;
 }
 
 .fa-paw {
@@ -69,6 +70,6 @@ h1 {
   padding: 4px;
   font-size: 20px;
   position: absolute;
-  bottom: 112%;
+  top: 2%;
   right: 5%;
 }

@@ -1,35 +1,41 @@
-.main {
-  border: 1px solid black;
-  background-color: #f0d2b7;
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  justify-content: center;
-  height: 70%;
-  padding: 25px 5px;
+.back-btn {
+  border-radius: 21px;
+  background-color: #453326;
+  color: white;
+  padding: 4px;
+  font-size: 20px;
+  top: 2%;
+  left: 5%;
+  position: absolute;
 }
 
 .HowToRoute {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  border: 1px solid black;
+  background-color: #f0d2b7;
+  margin: 10%;
+  padding: 10%;
+  box-shadow: 1px 1px 1px black;
 }
 
 .how-to {
   color: #b56639;
   text-align: center;
-  padding: 0;
+  margin-bottom: 5%;
+  text-shadow: 0.5px 0.5px #b56639;
 }
 
-p {
+.howto-text {
   color: #b56639;
-  justify-content: center;
   font-weight: bold;
+  margin-bottom: 10%;
 }
 
 h3 {
   color: white;
-  font-size: 20px;
   text-shadow: black 3px 0px 0px, black 2.83487px 0.981584px 0px,
     black 2.35766px 1.85511px 0px, black 1.62091px 2.52441px 0px,
     black 0.705713px 2.91581px 0px, black -0.287171px 2.98622px 0px,
@@ -40,18 +46,4 @@ h3 {
     black -0.137119px -2.99686px 0px, black 0.850987px -2.87677px 0px,
     black 1.74541px -2.43999px 0px, black 2.44769px -1.73459px 0px,
     black 2.88051px -0.838247px 0px;
-}
-
-.back-btn {
-  border-radius: 18px;
-  background-color: #453326;
-  color: white;
-  padding: 3px 5px;
-  font-size: 20px;
-  position: absolute;
-  top: 1.5%;
-  left: 2%;
-}
-Header {
-  position: relative;
 }
