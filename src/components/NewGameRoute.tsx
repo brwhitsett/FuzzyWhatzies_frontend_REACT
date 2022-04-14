@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NewGameRoute.css";
 import QuestionCard from "./QuestionCard";
 
 const NewGameRoute = () => {
   const [difficulty, setDifficulty] = useState("");
   const [speed, setSpeed] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="NewGameRoute">
+      <button onClick={() => navigate("/")} className="back-btn">
+        Back
+      </button>
       {!difficulty && (
         <>
           <h2>Select Difficulty</h2>

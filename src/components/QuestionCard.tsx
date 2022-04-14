@@ -16,7 +16,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [animal, setAnimal] = useState<Animal>();
-  const [timer, setTimer] = useState<number>();
+  // const [timer, setTimer] = useState<number>();
   const [timerRemaining, setTimerRemaining] = useState<number>();
   const [name, setName] = useState<string>("");
   const [type, setType] = useState<string>("");
@@ -25,6 +25,9 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
   const [correct, setCorrect] = useState<number>(0);
   const [incorrect, setIncorrect] = useState<number>(0);
   const [total, setTotal] = useState<number>(0);
+  let countdown: any = setTimeout(() => {
+    setTimerRemaining(timerRemaining! - 1);
+  }, 1000);
 
   const getAndSetAnimal = () => {
     getSingleAnimal().then((response) => {
@@ -34,22 +37,18 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
 
   const getAndSetTimer = () => {
     if (speed === "Tortoise") {
-      setTimer(45);
+      // setTimer(45);
       setTimerRemaining(45);
     } else if (speed === "Cheetah") {
-      setTimer(30);
+      // setTimer(30);
       setTimerRemaining(30);
     } else if (speed === "Peregrine Falcon") {
-      setTimer(15);
+      // setTimer(15);
       setTimerRemaining(15);
     } else {
-      setTimer(Infinity);
+      // setTimer(Infinity);
       setTimerRemaining(Infinity);
     }
-  };
-
-  const calculateTimerRemaining = () => {
-    setTimerRemaining(timerRemaining! - 1);
   };
 
   const checkAnswers = (difficulty: string): boolean => {
@@ -102,8 +101,8 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     setType("");
     setLatinName("");
     setName("");
+    clearTimeout(countdown);
     console.log(checkAnswers(difficulty));
-    clearTimeout(timerRemaining);
   };
 
   useEffect(() => {
@@ -111,11 +110,11 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     getAndSetTimer();
   }, [total]);
 
-  useEffect(() => {
-    const countdown = setTimeout(() => {
-      setTimerRemaining(timerRemaining! - 1);
-    }, 1000);
-  });
+  // useEffect(() => {
+  //   countdown = setTimeout(() => {
+  //     setTimerRemaining(timerRemaining! - 1);
+  //   }, 1000);
+  // });
 
   return (
     <div className="QuestionCard">

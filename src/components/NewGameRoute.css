@@ -40,3 +40,14 @@
     -3px 0 0 #453326;
   background-color: #80a453;
 }
+
+.NewGameRoute .back-btn {
+  border-radius: 21px;
+  background-color: #453326;
+  color: white;
+  padding: 4px;
+  font-size: 20px;
+  top: 2%;
+  left: 5%;
+  position: absolute;
+}
