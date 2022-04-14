@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NewGameRoute.css";
 import QuestionCard from "./QuestionCard";
 
 const NewGameRoute = () => {
   const [difficulty, setDifficulty] = useState("");
   const [speed, setSpeed] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="NewGameRoute">
+      <button onClick={() => navigate("/")} className="back-btn">
+        Back
+      </button>
       {!difficulty && (
         <>
           <h2>Select Difficulty</h2>
@@ -52,7 +57,7 @@ const NewGameRoute = () => {
             </li>
             <p>No Time Limit</p>
             <li>
-              <button onClick={() => setSpeed("Tortise")}>Tortise</button>
+              <button onClick={() => setSpeed("Tortoise")}>Tortoise</button>
             </li>
             <p>45 Second Time Limit</p>
             <li>
