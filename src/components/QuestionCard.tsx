@@ -17,7 +17,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
   const navigate = useNavigate();
   const [animal, setAnimal] = useState<Animal>();
   const [timer, setTimer] = useState<number>();
-  let [timerRemaining, setTimerRemaining] = useState<number>();
+  const [timerRemaining, setTimerRemaining] = useState<number>();
   const [name, setName] = useState<string>("");
   const [type, setType] = useState<string>("");
   const [active, setActive] = useState<string>("");
@@ -33,20 +33,23 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
   };
 
   const getAndSetTimer = () => {
-    if (speed === "Tortise") {
+    if (speed === "Tortoise") {
       setTimer(45);
+      setTimerRemaining(45);
     } else if (speed === "Cheetah") {
       setTimer(30);
+      setTimerRemaining(30);
     } else if (speed === "Peregrine Falcon") {
       setTimer(15);
+      setTimerRemaining(15);
     } else {
       setTimer(Infinity);
+      setTimerRemaining(Infinity);
     }
   };
 
   const calculateTimerRemaining = () => {
-    timerRemaining = timerRemaining!--;
-    return timerRemaining;
+    setTimerRemaining(timerRemaining! - 1);
   };
 
   const checkAnswers = (difficulty: string): boolean => {
@@ -100,17 +103,17 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     setLatinName("");
     setName("");
     console.log(checkAnswers(difficulty));
+    clearTimeout(timerRemaining);
   };
 
   useEffect(() => {
     getAndSetAnimal();
     getAndSetTimer();
-    setTimerRemaining(timer);
   }, [total]);
 
   useEffect(() => {
     const countdown = setTimeout(() => {
-      setTimerRemaining(calculateTimerRemaining());
+      setTimerRemaining(timerRemaining! - 1);
     }, 1000);
   });
 

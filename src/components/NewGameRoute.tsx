@@ -52,7 +52,7 @@ const NewGameRoute = () => {
             </li>
             <p>No Time Limit</p>
             <li>
-              <button onClick={() => setSpeed("Tortise")}>Tortise</button>
+              <button onClick={() => setSpeed("Tortoise")}>Tortoise</button>
             </li>
             <p>45 Second Time Limit</p>
             <li>
