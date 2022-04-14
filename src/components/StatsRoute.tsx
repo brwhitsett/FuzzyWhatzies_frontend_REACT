@@ -36,35 +36,60 @@ const StatsRoute = () => {
         <option value="Insanus">Insanus</option>
         <option value="Total">Total</option>
       </select>
-      <h2>Sessions</h2>
-      <ul>
-        {level === "Total" || level === ""
-          ? user &&
-            userSessions.map(
-              (userSession) =>
-                user.displayName === userSession.displayName && (
-                  <li>
-                    <p>Name: {userSession.displayName}</p>
-                    <p>Difficulty: {userSession.difficulty}</p>
-                    <p>Speed: {userSession.speed}</p>
-                    <p>Correct: {userSession.correct}</p>
-                  </li>
+      <h2>Last 3 Sessions</h2>
+      {user ? (
+        <ol>
+          {level === "Total" || level === ""
+            ? user &&
+              userSessions
+                .map(
+                  (userSession) =>
+                    user.displayName === userSession.displayName && (
+                      <li>
+                        <p>Name: {userSession.displayName}</p>
+                        <p>Difficulty: {userSession.difficulty}</p>
+                        <p>Speed: {userSession.speed}</p>
+                        <p>Correct: {userSession.correct}</p>
+                        <p>
+                          Percent Correct:
+                          {`${(
+                            (userSession.correct / userSession.total) *
+                            100
+                          ).toFixed(0)}%`}
+                        </p>
+                      </li>
+                    )
                 )
-            )
-          : user &&
-            userSessions.map(
-              (userSession) =>
-                user.displayName === userSession.displayName &&
-                userSession.difficulty === level && (
-                  <li>
-                    <p>Name: {userSession.displayName}</p>
-                    <p>Difficulty: {userSession.difficulty}</p>
-                    <p>Speed: {userSession.speed}</p>
-                    <p>Correct: {userSession.correct}</p>
-                  </li>
+                .reverse()
+                .slice(0, 3)
+            : user &&
+              userSessions
+                .map(
+                  (userSession) =>
+                    user.displayName === userSession.displayName &&
+                    userSession.difficulty === level && (
+                      <li>
+                        <p>Name: {userSession.displayName}</p>
+                        <p>Difficulty: {userSession.difficulty}</p>
+                        <p>Speed: {userSession.speed}</p>
+                        <p>Correct: {userSession.correct}</p>
+                        <p>
+                          Percent Correct:
+                          {`${(
+                            (userSession.correct / userSession.total) *
+                            100
+                          ).toFixed(0)}%`}
+                        </p>
+                      </li>
+                    )
                 )
-            )}
-      </ul>
+                .reverse()
+                .slice(0, 3)}
+        </ol>
+      ) : (
+        <h3>Sign In To See Your Session Info</h3>
+      )}
+      {console.log(userSessions)}
     </div>
   );
 };

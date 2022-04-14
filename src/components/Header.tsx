@@ -26,6 +26,7 @@ const Header = () => {
             <div className="circle">
               <i className="fa-solid fa-paw"></i>
             </div>
+
             <div className="fuzzy-whatzies">
               <p className="fuzzy"> Fuzzy </p>
               <p className="whatzies"> WHATZIES </p>
