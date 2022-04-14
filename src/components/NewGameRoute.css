@@ -1,0 +1,42 @@
+.NewGameRoute {
+  border: 2px black solid;
+  font-family: "Eater", cursive;
+  background-color: #f0d2b7;
+  margin: 0px 12.5%;
+  padding: 25px 0;
+}
+
+.NewGameRoute h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b56639;
+  font-size: calc(1.5vw + 1.5vh + 1.5vmin);
+  text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
+    3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
+    -3px 0 0 #453326;
+  font-family: "Eater", cursive;
+}
+
+.NewGameRoute ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.NewGameRoute li {
+  border: 2px black solid;
+  list-style: none;
+}
+
+.NewGameRoute button {
+  height: 7vh;
+  width: 40vw;
+  font-size: 2.5vh;
+  color: #fff;
+  text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
+    3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
+    -3px 0 0 #453326;
+  background-color: #80a453;
+}

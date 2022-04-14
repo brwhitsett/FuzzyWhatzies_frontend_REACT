@@ -17,6 +17,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
   const navigate = useNavigate();
   const [animal, setAnimal] = useState<Animal>();
   const [timer, setTimer] = useState<number>();
+  let [timerRemaining, setTimerRemaining] = useState<number>();
   const [name, setName] = useState<string>("");
   const [type, setType] = useState<string>("");
   const [active, setActive] = useState<string>("");
@@ -41,6 +42,11 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     } else {
       setTimer(Infinity);
     }
+  };
+
+  const calculateTimerRemaining = () => {
+    timerRemaining = timerRemaining!--;
+    return timerRemaining;
   };
 
   const checkAnswers = (difficulty: string): boolean => {
@@ -99,7 +105,14 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
   useEffect(() => {
     getAndSetAnimal();
     getAndSetTimer();
+    setTimerRemaining(timer);
   }, [total]);
+
+  useEffect(() => {
+    const countdown = setTimeout(() => {
+      setTimerRemaining(calculateTimerRemaining());
+    }, 1000);
+  });
 
   return (
     <div className="QuestionCard">
@@ -108,13 +121,11 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
       </p>
       <div className="timer-container">
         <p>Timer:</p>
-        <p>{timer}</p>
+        <p>{timerRemaining}</p>
       </div>
       <img src={animal?.image_link} alt="" />
 
       <form onSubmit={submitHandler}>
-        <h2>Whatsies?</h2>
-
         {/* Animal name */}
         <label htmlFor="name">What is this Animal's name?</label>
         {difficulty === "Easy" || difficulty === "Medium" ? (
@@ -134,69 +145,70 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
         )}
 
         {/* type of animal */}
-        <div>
-          <p>What Type of Animal?</p>
+        <div className="type-question">
+          <label>What Type of Animal?</label>
+          <div>
+            <input
+              type="radio"
+              name="type"
+              id="amphibian"
+              value="Amphibian"
+              checked={type === "Amphibian"}
+              // onClick={setChecked(true)}
+              onChange={(e) => setType(e.target.value)}
+            />
+            <label htmlFor="amphibian">Amphibian</label>
 
-          <input
-            type="radio"
-            name="type"
-            id="amphibian"
-            value="Amphibian"
-            checked={type === "Amphibian"}
-            // onClick={setChecked(true)}
-            onChange={(e) => setType(e.target.value)}
-          />
-          <label htmlFor="amphibian">Amphibian</label>
+            <input
+              type="radio"
+              name="type"
+              id="bird"
+              value="Bird"
+              checked={type === "Bird"}
+              onChange={(e) => setType(e.target.value)}
+            />
+            <label htmlFor="bird">Bird</label>
 
-          <input
-            type="radio"
-            name="type"
-            id="bird"
-            value="Bird"
-            checked={type === "Bird"}
-            onChange={(e) => setType(e.target.value)}
-          />
-          <label htmlFor="bird">Bird</label>
+            <input
+              type="radio"
+              name="type"
+              id="fish"
+              value="Fish"
+              checked={type === "Fish"}
+              onChange={(e) => setType(e.target.value)}
+            />
+            <label htmlFor="fish">Fish</label>
 
-          <input
-            type="radio"
-            name="type"
-            id="fish"
-            value="Fish"
-            checked={type === "Fish"}
-            onChange={(e) => setType(e.target.value)}
-          />
-          <label htmlFor="fish">Fish</label>
+            <input
+              type="radio"
+              name="type"
+              id="mammal"
+              value="Mammal"
+              checked={type === "Mammal"}
+              onChange={(e) => setType(e.target.value)}
+            />
+            <label htmlFor="mammal">Mammal</label>
 
-          <input
-            type="radio"
-            name="type"
-            id="mammal"
-            value="Mammal"
-            checked={type === "Mammal"}
-            onChange={(e) => setType(e.target.value)}
-          />
-          <label htmlFor="mammal">Mammal</label>
+            <input
+              type="radio"
+              name="type"
+              id="marsupial"
+              value="Marsupial"
+              checked={type === "Marsupial"}
+              onChange={(e) => setType(e.target.value)}
+            />
+            <label htmlFor="marsupial">Marsupial</label>
 
-          <input
-            type="radio"
-            name="type"
-            id="marsupial"
-            value="Marsupial"
-            checked={type === "Marsupial"}
-            onChange={(e) => setType(e.target.value)}
-          />
-          <label htmlFor="marsupial">Marsupial</label>
-
-          <input
-            type="radio"
-            name="type"
-            id="reptile"
-            value="Reptile"
-            checked={type === "Reptile"}
-            onChange={(e) => setType(e.target.value)}
-          />
-          <label htmlFor="reptile">Reptile</label>
+            <input
+              type="radio"
+              name="type"
+              id="reptile"
+              value="Reptile"
+              checked={type === "Reptile"}
+              onChange={(e) => setType(e.target.value)}
+            />
+            <label htmlFor="reptile">Reptile</label>
+          </div>
         </div>
 
         {/* active time */}
@@ -246,9 +258,13 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
             <p>{animal?.latin_name}</p>
           </div>
         )}
-        <button>Whatsie!</button>
+        <div className="button-container">
+          <button className="whatzie-button">Whatsie!</button>
+          <button className="endSession-button" onClick={endSession}>
+            End Session
+          </button>
+        </div>
       </form>
-      <button onClick={endSession}>End Session</button>
     </div>
   );
 };
