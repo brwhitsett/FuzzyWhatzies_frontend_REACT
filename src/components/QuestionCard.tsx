@@ -25,17 +25,12 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
   const [correct, setCorrect] = useState<number>(0);
   const [incorrect, setIncorrect] = useState<number>(0);
   const [total, setTotal] = useState<number>(0);
-  let countdown: any = setTimeout(() => {
-    setTimerRemaining(timerRemaining! - 1);
-  }, 1000);
 
-  const getAndSetAnimal = () => {
-    getSingleAnimal().then((response) => {
-      setAnimal(response);
-    });
-  };
+  useEffect(() => {
+    getAndSetAnimal();
+  }, [total]);
 
-  const getAndSetTimer = () => {
+  useEffect(() => {
     if (speed === "Tortoise") {
       // setTimer(45);
       setTimerRemaining(45);
@@ -49,6 +44,31 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
       // setTimer(Infinity);
       setTimerRemaining(Infinity);
     }
+  }, [total]);
+
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      if (timerRemaining! > 0) {
+        setTimerRemaining((prev) => {
+          console.log(prev! - 1);
+          return prev! - 1;
+        });
+      }
+      if (timerRemaining === 0) {
+        console.log("Test Message:Timer");
+        clearInterval(myInterval);
+        sendUpdatedUserData();
+      }
+    }, 1000);
+    return () => {
+      clearInterval(myInterval);
+    };
+  });
+
+  const getAndSetAnimal = () => {
+    getSingleAnimal().then((response) => {
+      setAnimal(response);
+    });
   };
 
   const checkAnswers = (difficulty: string): boolean => {
@@ -84,8 +104,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     navigate("/");
   };
 
-  const submitHandler = (e: FormEvent): void => {
-    e.preventDefault();
+  const sendUpdatedUserData = () => {
     updateUserData(user?.uid!, {
       difficulty,
       correct: checkAnswers(difficulty),
@@ -101,20 +120,12 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     setType("");
     setLatinName("");
     setName("");
-    clearTimeout(countdown);
-    console.log(checkAnswers(difficulty));
   };
 
-  useEffect(() => {
-    getAndSetAnimal();
-    getAndSetTimer();
-  }, [total]);
-
-  // useEffect(() => {
-  //   countdown = setTimeout(() => {
-  //     setTimerRemaining(timerRemaining! - 1);
-  //   }, 1000);
-  // });
+  const submitHandler = (e: FormEvent): void => {
+    e.preventDefault();
+    sendUpdatedUserData();
+  };
 
   return (
     <div className="QuestionCard">
