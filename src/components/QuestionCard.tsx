@@ -55,12 +55,10 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     let myInterval = setInterval(() => {
       if (timerRemaining! > 0) {
         setTimerRemaining((prev) => {
-          console.log(prev! - 1);
           return prev! - 1;
         });
       }
       if (timerRemaining === 0) {
-        console.log("Test Message:Timer");
         clearInterval(myInterval);
         sendUpdatedUserData();
       }
@@ -146,148 +144,164 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
 
   return (
     <div className="QuestionCard">
-      <p className="gameSettingsBar">
-        {difficulty} - {speed}
-      </p>
-      <div className="timer-container">
-        <p>Timer:</p>
-        <p>{timerRemaining}</p>
-      </div>
-      <img src={animal?.image_link} alt="" />
-
       <form onSubmit={submitHandler}>
+        <p className="gameSettingsBar">
+          Game Setting: {difficulty} - {speed}
+        </p>
+        <div className="timer-container">
+          <p>{timerRemaining}</p>
+        </div>
+        <img src={animal?.image_link} alt="" />
         {/* Animal name */}
-        <label htmlFor="name">What is this Animal's name?</label>
-        {difficulty === "Easy" || difficulty === "Medium" ? (
-          <div>
-            <p>{animal?.name}</p>
-          </div>
-        ) : (
-          <div>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-        )}
-
+        <div className="animal-name-question question-container">
+          <label className="question-asked" htmlFor="name">
+            What is this Animal's name?
+          </label>
+          {difficulty === "Easy" || difficulty === "Medium" ? (
+            <div>
+              <p>{animal?.name}</p>
+            </div>
+          ) : (
+            <div>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+          )}
+        </div>
         {/* type of animal */}
-        <div className="type-question">
-          <label>What Type of Animal?</label>
-          <div>
-            <input
-              type="radio"
-              name="type"
-              id="amphibian"
-              value="Amphibian"
-              checked={type === "Amphibian"}
-              // onClick={setChecked(true)}
-              onChange={(e) => setType(e.target.value)}
-            />
-            <label htmlFor="amphibian">Amphibian</label>
+        <div className="type-question question-container">
+          <label className="question-asked">What Type of Animal?</label>
+          <div className="animal-type-container">
+            <label htmlFor="amphibian">
+              Amphibian{" "}
+              <input
+                type="radio"
+                name="type"
+                id="amphibian"
+                value="Amphibian"
+                checked={type === "Amphibian"}
+                onChange={(e) => setType(e.target.value)}
+              />
+            </label>
+            <label htmlFor="bird">
+              Bird{" "}
+              <input
+                type="radio"
+                name="type"
+                id="bird"
+                value="Bird"
+                checked={type === "Bird"}
+                onChange={(e) => setType(e.target.value)}
+              />
+            </label>
 
-            <input
-              type="radio"
-              name="type"
-              id="bird"
-              value="Bird"
-              checked={type === "Bird"}
-              onChange={(e) => setType(e.target.value)}
-            />
-            <label htmlFor="bird">Bird</label>
+            <label htmlFor="fish">
+              Fish{" "}
+              <input
+                type="radio"
+                name="type"
+                id="fish"
+                value="Fish"
+                checked={type === "Fish"}
+                onChange={(e) => setType(e.target.value)}
+              />
+            </label>
 
-            <input
-              type="radio"
-              name="type"
-              id="fish"
-              value="Fish"
-              checked={type === "Fish"}
-              onChange={(e) => setType(e.target.value)}
-            />
-            <label htmlFor="fish">Fish</label>
+            <label htmlFor="mammal">
+              Mammal{" "}
+              <input
+                type="radio"
+                name="type"
+                id="mammal"
+                value="Mammal"
+                checked={type === "Mammal"}
+                onChange={(e) => setType(e.target.value)}
+              />
+            </label>
 
-            <input
-              type="radio"
-              name="type"
-              id="mammal"
-              value="Mammal"
-              checked={type === "Mammal"}
-              onChange={(e) => setType(e.target.value)}
-            />
-            <label htmlFor="mammal">Mammal</label>
+            <label htmlFor="marsupial">
+              Marsupial{" "}
+              <input
+                type="radio"
+                name="type"
+                id="marsupial"
+                value="Marsupial"
+                checked={type === "Marsupial"}
+                onChange={(e) => setType(e.target.value)}
+              />
+            </label>
 
-            <input
-              type="radio"
-              name="type"
-              id="marsupial"
-              value="Marsupial"
-              checked={type === "Marsupial"}
-              onChange={(e) => setType(e.target.value)}
-            />
-            <label htmlFor="marsupial">Marsupial</label>
-
-            <input
-              type="radio"
-              name="type"
-              id="reptile"
-              value="Reptile"
-              checked={type === "Reptile"}
-              onChange={(e) => setType(e.target.value)}
-            />
-            <label htmlFor="reptile">Reptile</label>
+            <label htmlFor="reptile">
+              Reptile{" "}
+              <input
+                type="radio"
+                name="type"
+                id="reptile"
+                value="Reptile"
+                checked={type === "Reptile"}
+                onChange={(e) => setType(e.target.value)}
+              />
+            </label>
           </div>
         </div>
 
         {/* active time */}
-        <p>When is this Animal active?</p>
-        {difficulty === "Easy" ? (
-          <div>
-            <p>{animal?.active_time}</p>
-          </div>
-        ) : (
-          <div>
-            <input
-              type="radio"
-              name="active_time"
-              id="diurnal"
-              value="Diurnal"
-              checked={active === "Diurnal"}
-              onChange={(e) => setActive(e.target.value)}
-            />
-            <label htmlFor="diurnal">Diurnal (Daytime)</label>
+        <div className="question-container">
+          <label className="question-asked">When is this Animal active?</label>
+          {difficulty === "Easy" ? (
+            <div>
+              <p>{animal?.active_time}</p>
+            </div>
+          ) : (
+            <div>
+              <input
+                type="radio"
+                name="active_time"
+                id="diurnal"
+                value="Diurnal"
+                checked={active === "Diurnal"}
+                onChange={(e) => setActive(e.target.value)}
+              />
+              <label htmlFor="diurnal">Diurnal (Daytime)</label>
 
-            <input
-              type="radio"
-              name="active_time"
-              id="nocturnal"
-              value="Nocturnal"
-              checked={active === "Nocturnal"}
-              onChange={(e) => setActive(e.target.value)}
-            />
-            <label htmlFor="nocturnal">Nocturnal (Nighttime)</label>
-          </div>
-        )}
-
+              <input
+                type="radio"
+                name="active_time"
+                id="nocturnal"
+                value="Nocturnal"
+                checked={active === "Nocturnal"}
+                onChange={(e) => setActive(e.target.value)}
+              />
+              <label htmlFor="nocturnal">Nocturnal (Nighttime)</label>
+            </div>
+          )}
+        </div>
         {/* latin name */}
-        <label htmlFor="latin_name">What is this Animal's Latin name?</label>
-        {difficulty === "Insanus" ? (
-          <div>
-            <input
-              type="text"
-              name="latin_name"
-              id="latin_name"
-              value={latinName}
-              onChange={(e) => setLatinName(e.target.value)}
-            />
-          </div>
-        ) : (
-          <div>
-            <p>{animal?.latin_name}</p>
-          </div>
-        )}
+        <div className="question-container">
+          <label htmlFor="latin_name" className="question-asked">
+            What is this Animal's Latin name?
+          </label>
+          {difficulty === "Insanus" ? (
+            <div>
+              <input
+                type="text"
+                name="latin_name"
+                id="latin_name"
+                value={latinName}
+                onChange={(e) => setLatinName(e.target.value)}
+              />
+            </div>
+          ) : (
+            <div>
+              <p>{animal?.latin_name}</p>
+            </div>
+          )}
+        </div>
         <div className="button-container">
           <button className="whatzie-button">Whatsie!</button>
           <button className="endSession-button" onClick={endSession}>

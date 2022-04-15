@@ -10,9 +10,6 @@ const NewGameRoute = () => {
 
   return (
     <div className="NewGameRoute">
-      <button onClick={() => navigate("/")} className="back-btn">
-        Back
-      </button>
       {!difficulty && (
         <>
           <h2>Select Difficulty</h2>
@@ -23,11 +20,11 @@ const NewGameRoute = () => {
           <h2>Select Speed</h2>
         </>
       )}
-      {difficulty && speed && (
+      {/* {difficulty && speed && (
         <>
           <h2>Whatsies?</h2>
         </>
-      )}
+      )} */}
 
       <ul>
         {!difficulty && (
