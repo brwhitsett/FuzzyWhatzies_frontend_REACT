@@ -42,7 +42,7 @@ const StatsRoute = () => {
         <option value="Insanus">Insanus</option>
         <option value="Total">Total</option>
       </select>
-      <h2>Last 3 Sessions</h2>
+      <h2 className="sessions">Last 3 Sessions</h2>
       {user ? (
         <ol className="main-area">
           {level === "Total" || level === ""
