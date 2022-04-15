@@ -11,11 +11,12 @@
   justify-content: center;
   align-items: center;
   color: #b56639;
-  font-size: calc(1.5vw + 1.5vh + 1.5vmin);
+  font-size: calc(2vw + 2vh);
   text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
     3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
     -3px 0 0 #453326;
   font-family: "Eater", cursive;
+  text-align: center;
 }
 
 .MainRoute ul {
@@ -35,7 +36,7 @@
 .MainRoute button {
   height: 7vh;
   width: 40vw;
-  font-size: 36px;
+  font-size: calc(1.75vw + 1.75vh);
   color: #fff;
   text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
     3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,

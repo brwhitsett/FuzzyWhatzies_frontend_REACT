@@ -17,6 +17,8 @@ ul {
   padding: 0;
   font-family: "Inter", sans-serif;
   /* font-family: "Eater", cursive; */
+  /* look at index.html for font import script held in public folder */
+  /* Eater is used in Header.css */
 }
 
 .index {

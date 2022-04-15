@@ -35,5 +35,5 @@
 
 .QuestionCard .endSession-button {
   background-color: #a45353;
-  font-size: 24px;
+  font-size: calc(1.75vw + 1.75vh);
 }

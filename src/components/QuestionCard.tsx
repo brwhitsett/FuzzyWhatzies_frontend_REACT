@@ -7,6 +7,11 @@ import AuthContext from "../context/AuthContext";
 import { sendNewSessionData } from "../services/SessionServices";
 import { useNavigate } from "react-router-dom";
 
+// value of props come from NewGameRoute
+// difficulty sets fields to fill in
+// speed sets time limit
+// both are displayed in the setting bar
+
 interface Props {
   difficulty: string;
   speed: string;
@@ -105,15 +110,15 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
   };
 
   const sendUpdatedUserData = () => {
-    updateUserData(user?.uid!, {
-      difficulty,
-      correct: checkAnswers(difficulty),
-    });
     if (checkAnswers(difficulty)) {
       setCorrect(correct + 1);
     } else {
       setIncorrect(incorrect + 1);
     }
+    updateUserData(user?.uid!, {
+      difficulty,
+      correct: checkAnswers(difficulty),
+    });
     setTotal(total + 1);
 
     setActive("");
@@ -121,6 +126,18 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
     setLatinName("");
     setName("");
   };
+
+  // submit handler attached to form
+
+  // on submit (or end of interval) sendUpdatedUserData is fired
+
+  // sendUserData increments correct, incorrect (depending on the boolean received from checkAnswers), and total
+  // to store in state for session submission at the end of the session
+
+  // updateUserData is fired using the logged in user's uid and a new UserUpdate (see model) are sent to the body
+  // depending on the answer either a correct or incorrect is added to the user's life time total
+
+  // resets state for active, type, latin_name, and name
 
   const submitHandler = (e: FormEvent): void => {
     e.preventDefault();
