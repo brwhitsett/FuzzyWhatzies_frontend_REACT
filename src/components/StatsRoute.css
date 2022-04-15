@@ -17,7 +17,7 @@ h3 {
 .difficulty-dropdown {
   position: absolute;
   left: 62%;
-  top: 30%;
+  top: 25%;
   border: none;
   font-weight: bold;
   font-size: 18px;
@@ -27,7 +27,7 @@ p {
   font-weight: bold;
 }
 
-h2 .sessions {
+h2.sessions {
   border: 1px solid black;
   background-color: yellow;
   padding-top: 10px;
@@ -37,8 +37,16 @@ h2 .sessions {
   height: 50px;
   position: absolute;
   z-index: 3;
-  top: 37%;
+  top: -5%;
   left: 15%;
+}
+
+.orderedlist-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px;
 }
 
 .session-list {
@@ -54,7 +62,21 @@ h2 .sessions {
   background-color: #80a453;
   width: 110%;
 }
-.main-area {
+h2.game-history {
+  border: 1px solid black;
+  background-color: yellow;
+  padding-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  width: 70%;
+  height: 50px;
+  position: absolute;
+  z-index: 3;
+  top: 31%;
+  left: 15%;
+}
+
+.gamehistory-area {
   border: 1px solid black;
   background-color: #f0d2b7;
   padding: 10%;
@@ -66,4 +88,21 @@ h2 .sessions {
   margin-top: 100px;
   position: relative;
   z-index: 2;
+}
+
+.session-area {
+  border: 1px solid black;
+  background-color: #f0d2b7;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10%;
+  margin-top: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+@media only screen and (min-width: 768px) {
 }
