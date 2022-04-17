@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import { signInWithGoogle, signOut } from "../firebaseConfig";
 import { getSingleUserData, sendNewUserData } from "../services/UserServices";
@@ -7,6 +7,7 @@ import "./Header.css";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
@@ -50,6 +51,9 @@ const Header = () => {
           </div>
         )}
       </div>
+      <button className="back-btn" onClick={() => navigate("/")}>
+        Back
+      </button>
     </header>
   );
 };

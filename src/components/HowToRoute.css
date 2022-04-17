@@ -47,3 +47,8 @@ h3 {
     black 1.74541px -2.43999px 0px, black 2.44769px -1.73459px 0px,
     black 2.88051px -0.838247px 0px;
 }
+
+.HowToRoute {
+  background: url(../../public/assets/green-leaf-background.png);
+  height: 115vh;
+}

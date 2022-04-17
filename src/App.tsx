@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
         <Routes>
           <Route path="/" element={<MainRoute />} />
           <Route path="/howto" element={<HowToRoute />} />

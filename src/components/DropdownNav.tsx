@@ -4,19 +4,20 @@ import Difficulty from "../models/Difficulty";
 import "./DropdownNav.css";
 
 interface Props {
-  gameDifficulty: Difficulty;
+  level: string;
 }
 
-const DropdownNav = () => {
-  const [level, setLevel] = useState("");
+const DropdownNav = ({ level }: Props) => {
+  const setDifficulty = () => {
+    const difficulty = level;
+  };
 
   return (
     <div className="Dropdown">
-      {}
       <select
         name="difficulty-dropdown"
         id="difficulty-dropdown"
-        onChange={(e) => setLevel(e.target.value)}
+        onChange={(e) => setDifficulty()}
         value={level}
       >
         <option value="" disabled selected hidden>
@@ -26,6 +27,7 @@ const DropdownNav = () => {
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
         <option value="insanus">Insanus</option>
+        <option value="Total">Total</option>
       </select>
     </div>
   );
