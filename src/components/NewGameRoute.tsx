@@ -1,25 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Animal from "../models/Animal";
+import { getSingleAnimal } from "../services/AnimalServices";
 import "./NewGameRoute.css";
 import QuestionCard from "./QuestionCard";
 
 const NewGameRoute = () => {
   const [difficulty, setDifficulty] = useState("");
   const [speed, setSpeed] = useState("");
+  const [animal, setAnimal] = useState<Animal>();
   const navigate = useNavigate();
+
+  const getAndSetAnimal = () => {
+    getSingleAnimal().then((response) => {
+      setAnimal(response);
+    });
+  };
+
+  useEffect(() => {
+    getAndSetAnimal();
+  }, [difficulty]);
 
   return (
     <div className="NewGameRoute">
-      {!difficulty && (
-        <>
-          <h2>Select Difficulty</h2>
-        </>
-      )}
-      {!speed && difficulty && (
-        <>
-          <h2>Select Speed</h2>
-        </>
-      )}
+      <div>
+        {!difficulty && (
+          <>
+            <h2>New Game</h2>
+            <h3>Select Difficulty</h3>
+          </>
+        )}
+        {!speed && difficulty && (
+          <>
+            <h2>New Game</h2>
+            <h3>Select Speed</h3>
+          </>
+        )}
+        {!speed ||
+          (!difficulty && (
+            <img
+              className="desktop-img"
+              src={animal?.image_link}
+              alt={animal?.diet}
+            />
+          ))}
+      </div>
       {/* {difficulty && speed && (
         <>
           <h2>Whatsies?</h2>

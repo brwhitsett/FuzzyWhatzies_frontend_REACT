@@ -4,7 +4,7 @@
   background-color: #f0d2b7;
   margin: 0px 12.5%;
   padding: 25px 0;
-  height: 70vh;
+  height: 73vh;
 }
 
 .MainRoute h2 {
@@ -36,7 +36,7 @@
 .MainRoute button {
   height: 55px;
   width: 40vw;
-  font-size: calc(1.75vw + 1.75vh);
+  font-size: calc(1.5vw + 1.5vh);
   color: #fff;
   text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
     3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,

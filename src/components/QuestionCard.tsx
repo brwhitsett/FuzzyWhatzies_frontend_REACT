@@ -144,169 +144,184 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
 
   return (
     <div className="QuestionCard">
-      <form onSubmit={submitHandler}>
+      <div className="animal-img-game-set-container">
         <p className="gameSettingsBar">
           Game Setting: {difficulty} - {speed}
         </p>
-        <div className="timer-container">
-          <p>{timerRemaining}</p>
-        </div>
-        <img src={animal?.image_link} alt="" />
-        {/* Animal name */}
-        <div className="animal-name-question question-container">
-          <label className="question-asked" htmlFor="name">
-            What is this Animal's name?
-          </label>
-          {difficulty === "Easy" || difficulty === "Medium" ? (
-            <div>
-              <p>{animal?.name}</p>
-            </div>
-          ) : (
-            <div>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-          )}
-        </div>
-        {/* type of animal */}
-        <div className="type-question question-container">
-          <label className="question-asked">What Type of Animal?</label>
-          <div className="animal-type-container">
-            <label htmlFor="amphibian">
-              Amphibian{" "}
-              <input
-                type="radio"
-                name="type"
-                id="amphibian"
-                value="Amphibian"
-                checked={type === "Amphibian"}
-                onChange={(e) => setType(e.target.value)}
-              />
-            </label>
-            <label htmlFor="bird">
-              Bird{" "}
-              <input
-                type="radio"
-                name="type"
-                id="bird"
-                value="Bird"
-                checked={type === "Bird"}
-                onChange={(e) => setType(e.target.value)}
-              />
-            </label>
 
-            <label htmlFor="fish">
-              Fish{" "}
-              <input
-                type="radio"
-                name="type"
-                id="fish"
-                value="Fish"
-                checked={type === "Fish"}
-                onChange={(e) => setType(e.target.value)}
-              />
-            </label>
-
-            <label htmlFor="mammal">
-              Mammal{" "}
-              <input
-                type="radio"
-                name="type"
-                id="mammal"
-                value="Mammal"
-                checked={type === "Mammal"}
-                onChange={(e) => setType(e.target.value)}
-              />
-            </label>
-
-            <label htmlFor="marsupial">
-              Marsupial{" "}
-              <input
-                type="radio"
-                name="type"
-                id="marsupial"
-                value="Marsupial"
-                checked={type === "Marsupial"}
-                onChange={(e) => setType(e.target.value)}
-              />
-            </label>
-
-            <label htmlFor="reptile">
-              Reptile{" "}
-              <input
-                type="radio"
-                name="type"
-                id="reptile"
-                value="Reptile"
-                checked={type === "Reptile"}
-                onChange={(e) => setType(e.target.value)}
-              />
-            </label>
+        <img src={animal?.image_link} alt={animal?.diet} />
+      </div>
+      <form onSubmit={submitHandler}>
+        <div className="desktop-flex-container">
+          <div className="timer-container">
+            {speed === "Unlimited" ? <p>∞</p> : <p>{timerRemaining}</p>}
           </div>
-        </div>
+          {/* Animal name */}
+          <div className="animal-name-question question-container">
+            <label className="question-asked" htmlFor="name">
+              What is this Animal's name?
+            </label>
+            {difficulty === "Easy" || difficulty === "Medium" ? (
+              <div>
+                <p>{animal?.name}</p>
+              </div>
+            ) : (
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="text-input"
+                />
+              </div>
+            )}
+          </div>
+          {/* type of animal */}
+          <div className="type-question question-container">
+            <label className="question-asked">What Type of Animal?</label>
+            <div className="animal-type-container">
+              <label htmlFor="amphibian">
+                <input
+                  type="radio"
+                  name="type"
+                  id="amphibian"
+                  value="Amphibian"
+                  checked={type === "Amphibian"}
+                  onChange={(e) => setType(e.target.value)}
+                />
+                Amphibian{" "}
+              </label>
+              <label htmlFor="bird">
+                <input
+                  type="radio"
+                  name="type"
+                  id="bird"
+                  value="Bird"
+                  checked={type === "Bird"}
+                  onChange={(e) => setType(e.target.value)}
+                />
+                Bird{" "}
+              </label>
 
-        {/* active time */}
-        <div className="question-container">
-          <label className="question-asked">When is this Animal active?</label>
-          {difficulty === "Easy" ? (
-            <div>
-              <p>{animal?.active_time}</p>
-            </div>
-          ) : (
-            <div>
-              <input
-                type="radio"
-                name="active_time"
-                id="diurnal"
-                value="Diurnal"
-                checked={active === "Diurnal"}
-                onChange={(e) => setActive(e.target.value)}
-              />
-              <label htmlFor="diurnal">Diurnal (Daytime)</label>
+              <label htmlFor="fish">
+                <input
+                  type="radio"
+                  name="type"
+                  id="fish"
+                  value="Fish"
+                  checked={type === "Fish"}
+                  onChange={(e) => setType(e.target.value)}
+                />
+                Fish{" "}
+              </label>
 
-              <input
-                type="radio"
-                name="active_time"
-                id="nocturnal"
-                value="Nocturnal"
-                checked={active === "Nocturnal"}
-                onChange={(e) => setActive(e.target.value)}
-              />
-              <label htmlFor="nocturnal">Nocturnal (Nighttime)</label>
+              <label htmlFor="mammal">
+                <input
+                  type="radio"
+                  name="type"
+                  id="mammal"
+                  value="Mammal"
+                  checked={type === "Mammal"}
+                  onChange={(e) => setType(e.target.value)}
+                />
+                Mammal{" "}
+              </label>
+
+              <label htmlFor="marsupial">
+                <input
+                  type="radio"
+                  name="type"
+                  id="marsupial"
+                  value="Marsupial"
+                  checked={type === "Marsupial"}
+                  onChange={(e) => setType(e.target.value)}
+                />
+                Marsupial{" "}
+              </label>
+
+              <label htmlFor="reptile">
+                <input
+                  type="radio"
+                  name="type"
+                  id="reptile"
+                  value="Reptile"
+                  checked={type === "Reptile"}
+                  onChange={(e) => setType(e.target.value)}
+                />
+                Reptile{" "}
+              </label>
             </div>
-          )}
-        </div>
-        {/* latin name */}
-        <div className="question-container">
-          <label htmlFor="latin_name" className="question-asked">
-            What is this Animal's Latin name?
-          </label>
-          {difficulty === "Insanus" ? (
-            <div>
-              <input
-                type="text"
-                name="latin_name"
-                id="latin_name"
-                value={latinName}
-                onChange={(e) => setLatinName(e.target.value)}
-              />
-            </div>
-          ) : (
-            <div>
-              <p>{animal?.latin_name}</p>
-            </div>
-          )}
-        </div>
-        <div className="button-container">
-          <button className="whatzie-button">Whatsie!</button>
-          <button className="endSession-button" onClick={endSession}>
-            End Session
-          </button>
+          </div>
+
+          {/* active time */}
+          <div className="question-container">
+            <label className="question-asked">
+              When is this Animal active?
+            </label>
+            {difficulty === "Easy" ? (
+              <div>
+                <p>{animal?.active_time}</p>
+              </div>
+            ) : (
+              <div className="active-container">
+                <label htmlFor="diurnal">
+                  {" "}
+                  <input
+                    type="radio"
+                    name="active_time"
+                    id="diurnal"
+                    value="Diurnal"
+                    checked={active === "Diurnal"}
+                    onChange={(e) => setActive(e.target.value)}
+                  />
+                  Diurnal (Daytime)
+                </label>
+
+                <label htmlFor="nocturnal">
+                  {" "}
+                  <input
+                    type="radio"
+                    name="active_time"
+                    id="nocturnal"
+                    value="Nocturnal"
+                    checked={active === "Nocturnal"}
+                    onChange={(e) => setActive(e.target.value)}
+                  />
+                  Nocturnal (Nighttime)
+                </label>
+              </div>
+            )}
+          </div>
+          {/* latin name */}
+          <div className="question-container">
+            <label htmlFor="latin_name" className="question-asked">
+              What is this Animal's Latin name?
+            </label>
+            {difficulty === "Insanus" ? (
+              <div>
+                <input
+                  type="text"
+                  name="latin_name"
+                  id="latin_name"
+                  value={latinName}
+                  onChange={(e) => setLatinName(e.target.value)}
+                  className="text-input"
+                />
+              </div>
+            ) : (
+              <div>
+                <p>{animal?.latin_name}</p>
+              </div>
+            )}
+          </div>
+          <div className="button-container">
+            <button className="whatzie-button">Whatsie!</button>
+            <button className="endSession-button" onClick={endSession}>
+              End Session
+            </button>
+          </div>
         </div>
       </form>
     </div>
