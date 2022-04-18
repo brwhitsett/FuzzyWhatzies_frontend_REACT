@@ -1,53 +1,90 @@
 .NewGameRoute {
-  border: 2px black solid;
-  font-family: "Eater", cursive;
+  display: grid;
   background-color: #f0d2b7;
-  margin: 0px 12.5%;
-  padding: 25px 0;
+  position: relative;
+  margin: 0 12.5%;
+  height: 79vh;
+}
+
+.NewGameRoute .new-game-div {
+  border: 2px solid black;
 }
 
 .NewGameRoute h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #b56639;
-  font-size: calc(2vw + 2vh);
+  font-size: calc(2.5vw + 2.5vh);
   text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
     3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
     -3px 0 0 #453326;
-  font-family: "Eater", cursive;
+  display: flex;
+  justify-content: center;
+}
+
+.NewGameRoute .whatzie-header {
+  display: none;
+}
+
+.NewGameRoute h3 {
+  font-size: calc(1.5vw + 1.5vh);
+  margin: 0;
 }
 
 .NewGameRoute ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
 }
 
 .NewGameRoute li {
-  border: 2px black solid;
   list-style: none;
 }
 
 .NewGameRoute button {
-  height: 7vh;
-  width: 40vw;
-  font-size: calc(1.75vw + 1.75vh);
+  font-size: calc(1.5vw + 1.5vh);
   color: #fff;
   text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
     3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
     -3px 0 0 #453326;
   background-color: #80a453;
+  height: 6vh;
+  width: 50vw;
+  margin: 10px 0;
 }
 
-.NewGameRoute .back-btn {
-  border-radius: 21px;
-  background-color: #453326;
-  color: white;
-  padding: 4px;
-  font-size: 20px;
-  top: 2%;
-  left: 5%;
-  position: absolute;
+.NewGameRoute p {
+  font-size: calc(0.75vw + 0.75vh);
+  color: #b56639;
+  margin: 10px 0;
+}
+
+.NewGameRoute .desktop-img {
+  display: none;
+}
+
+@media only screen and (min-width: 1600px) {
+  .NewGameRoute {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  /* .NewGameRoute .whatzie-header {
+    display: block;
+  } */
+
+  .NewGameRoute .desktop-img {
+    display: block;
+    max-height: 450px;
+    max-width: 450px;
+  }
+
+  .NewGameRoute button {
+    width: 35vw;
+  }
+
+  .NewGameRoute .new-game-div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
 }
