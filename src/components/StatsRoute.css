@@ -12,6 +12,10 @@
   font-size: 18px;
 }
 
+.lineChart {
+  display: none;
+}
+
 .StatsRoute p {
   font-weight: bold;
 }
@@ -99,4 +103,14 @@ h2.game-history {
 }
 
 @media only screen and (min-width: 768px) {
+  .session-area {
+    display: none;
+  }
+
+  .lineChart {
+    display: block;
+  }
+  .gamehistory-area {
+    display: none;
+  }
 }
