@@ -1,40 +1,30 @@
-.back-btn {
-  border-radius: 21px;
-  background-color: #453326;
-  color: white;
-  padding: 4px;
-  font-size: 20px;
-  top: 2%;
-  left: 5%;
-  position: absolute;
-}
-
 .HowToRoute {
   justify-content: center;
+  height: 100%;
 }
 
-.main {
+.HowToRoute .main {
   border: 1px solid black;
   background-color: #f0d2b7;
-  margin: 10%;
-  padding: 10%;
+  margin: 5% 12%;
+  padding: 5% 10%;
   box-shadow: 1px 1px 1px black;
 }
 
-.how-to {
+.HowToRoute .how-to {
   color: #b56639;
   text-align: center;
   margin-bottom: 5%;
   text-shadow: 0.5px 0.5px #b56639;
 }
 
-.howto-text {
+.HowToRoute .howto-text {
   color: #b56639;
   font-weight: bold;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
-h3 {
+.HowToRoute h3 {
   color: white;
   text-shadow: black 3px 0px 0px, black 2.83487px 0.981584px 0px,
     black 2.35766px 1.85511px 0px, black 1.62091px 2.52441px 0px,
@@ -46,9 +36,4 @@ h3 {
     black -0.137119px -2.99686px 0px, black 0.850987px -2.87677px 0px,
     black 1.74541px -2.43999px 0px, black 2.44769px -1.73459px 0px,
     black 2.88051px -0.838247px 0px;
-}
-
-.HowToRoute {
-  background: url(../../public/assets/green-leaf-background.png);
-  height: 115vh;
 }

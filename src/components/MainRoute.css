@@ -1,9 +1,9 @@
-.MainRoute {
+.MainRoute .main-section {
   border: 2px black solid;
   font-family: "Eater", cursive;
   background-color: #f0d2b7;
-  margin: 0px 12.5%;
-  padding: 25px 0;
+  margin: 5% 12%;
+  padding: 5% 10%;
 }
 
 .MainRoute h2 {
@@ -34,7 +34,7 @@
   list-style: none;
 }
 
-.MainRoute button {
+.MainRoute .main-btn {
   height: 7vh;
   width: 40vw;
   font-size: calc(1.75vw + 1.75vh);

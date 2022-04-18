@@ -1,9 +1,9 @@
-.NewGameRoute {
+.NewGameRoute .main {
   border: 2px black solid;
-  font-family: "Eater", cursive;
+  font-family: "Eater";
   background-color: #f0d2b7;
-  margin: 0px 12.5%;
-  padding: 25px 0;
+  margin: 5% 12%;
+  padding: 5% 10%;
 }
 
 .NewGameRoute h2 {
@@ -30,7 +30,7 @@
   list-style: none;
 }
 
-.NewGameRoute button {
+.NewGameRoute .game-btn {
   height: 7vh;
   width: 40vw;
   font-size: calc(1.75vw + 1.75vh);
@@ -39,15 +39,4 @@
     3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
     -3px 0 0 #453326;
   background-color: #80a453;
-}
-
-.NewGameRoute .back-btn {
-  border-radius: 21px;
-  background-color: #453326;
-  color: white;
-  padding: 4px;
-  font-size: 20px;
-  top: 2%;
-  left: 5%;
-  position: absolute;
 }

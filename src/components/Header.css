@@ -11,7 +11,7 @@
     -5px 0 0 #453326;
 }
 
-.whatzies {
+.Header .whatzies {
   color: white;
   font-size: 36px;
   text-shadow: -5px -5px 0 #453326, 5px 0px 0 #453326, 0px -5px 0 #453326,
@@ -19,24 +19,19 @@
     -5px 0 0 #453326;
 }
 
-.title-border {
+.Header .title-border {
   border: 2px solid black;
   border-radius: 74px;
   background-color: #59d6de;
   box-shadow: 2px 2px 5px black;
-  margin-top: 60px;
-  padding-bottom: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-h1 {
+.Header h1 {
   display: flex;
   justify-content: center;
 }
 
-.fa-paw {
+.Header .fa-paw {
   margin-top: 30px;
   margin-left: -30px;
   font-size: 48px;
@@ -47,7 +42,7 @@ h1 {
   z-index: 2;
 }
 
-.circle {
+.Header .circle {
   border: 1px solid #f0d2b7;
   background-color: #f0d2b7;
   padding: 2px;
@@ -59,17 +54,21 @@ h1 {
   left: -10%;
   z-index: 1;
 }
-.username {
+.Header .username {
   display: none;
 }
 
-.google-btn {
+.Header .google {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.Header .head-btn {
   border-radius: 21px;
   background-color: #453326;
   color: white;
   padding: 4px;
   font-size: 20px;
-  position: absolute;
-  top: 2%;
-  right: 5%;
 }

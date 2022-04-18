@@ -21,6 +21,24 @@ const Header = () => {
 
   return (
     <header className="Header">
+      <div className="google">
+        {user ? (
+          <div>
+            <p className="username">{user.displayName}</p>
+            <button className="google-btn head-btn" onClick={signOut}>
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          <button className="google-btn head-btn" onClick={signInWithGoogle}>
+            Sign In
+          </button>
+        )}
+        <button className="back-btn head-btn" onClick={() => navigate("/")}>
+          Back
+        </button>
+      </div>
+
       <Link className="header-link" to="/">
         <div className="title-border">
           <h1>
@@ -35,25 +53,6 @@ const Header = () => {
           </h1>
         </div>
       </Link>
-      <div className="google">
-        {user ? (
-          <div>
-            <p className="username">{user.displayName}</p>
-            <button className="google-btn" onClick={signOut}>
-              Sign Out
-            </button>
-          </div>
-        ) : (
-          <div>
-            <button className="google-btn" onClick={signInWithGoogle}>
-              Sign In
-            </button>
-          </div>
-        )}
-      </div>
-      <button className="back-btn" onClick={() => navigate("/")}>
-        Back
-      </button>
     </header>
   );
 };
