@@ -9,10 +9,6 @@
   position: absolute;
 }
 
-.lineChart {
-  display: none;
-}
-
 h3 {
   text-align: center;
   margin-top: 45px;
@@ -109,15 +105,4 @@ h2.game-history {
 }
 
 @media only screen and (min-width: 768px) {
-  .gamehistory-area {
-    display: none;
-  }
-
-  .session-area {
-    display: none;
-  }
-
-  .lineChart {
-    display: block;
-  }
 }
