@@ -4,8 +4,10 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import Footer from "./components/Footer";
 import HowToRoute from "./components/HowToRoute";
 import LeaderBoardRoute from "./components/LeaderBoardRoute";
+
 import MainRoute from "./components/MainRoute";
 import NewGameRoute from "./components/NewGameRoute";
 import StatsRoute from "./components/StatsRoute";
@@ -22,6 +24,7 @@ function App() {
           <Route path="/leaderboard" element={<LeaderBoardRoute />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

@@ -56,6 +56,17 @@
     black -0.137119px -2.99686px 0px, black 0.850987px -2.87677px 0px,
     black 1.74541px -2.43999px 0px, black 2.44769px -1.73459px 0px,
     black 2.88051px -0.838247px 0px;
+  list-style: none;
+}
+
+.MainRoute button {
+  height: 55px;
+  width: 40vw;
+  font-size: calc(1.5vw + 1.5vh);
+  color: #fff;
+  text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
+    3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
+    -3px 0 0 #453326;
   background-color: #80a453;
   display: flex;
   align-items: center;

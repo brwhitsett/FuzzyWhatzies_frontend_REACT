@@ -24,18 +24,13 @@ const NewGameRoute = () => {
 
   return (
     <div className="NewGameRoute">
-      <Header />
       <div className="new-game-div">
-        {!speed ? (
-          <>
-            <img
-              className="desktop-img"
-              src={animal?.image_link}
-              alt={animal?.diet}
-            />
-          </>
-        ) : (
-          <></>
+        {!speed ?? (
+          <img
+            className="desktop-img"
+            src={animal?.image_link}
+            alt={animal?.diet}
+          />
         )}
         <ul>
           {!difficulty && (

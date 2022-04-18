@@ -178,7 +178,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
             )}
           </div>
           {/* type of animal */}
-          <div className="type-question question-container">
+          <div className="question-container">
             <label className="question-asked">What Type of Animal?</label>
             <div className="animal-type-container">
               <label htmlFor="amphibian">
