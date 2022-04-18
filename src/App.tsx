@@ -4,7 +4,6 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import Header from "./components/Header";
 import HowToRoute from "./components/HowToRoute";
 import LeaderBoardRoute from "./components/LeaderBoardRoute";
 import MainRoute from "./components/MainRoute";

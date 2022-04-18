@@ -1,6 +1,12 @@
 .HowToRoute {
   justify-content: center;
   height: 100%;
+
+  display: grid;
+  /* background-color: #f0d2b7;  */
+  position: relative;
+  margin: 0 12.5%;
+  height: 79vh;
 }
 
 .HowToRoute .main {
@@ -36,4 +42,18 @@
     black -0.137119px -2.99686px 0px, black 0.850987px -2.87677px 0px,
     black 1.74541px -2.43999px 0px, black 2.44769px -1.73459px 0px,
     black 2.88051px -0.838247px 0px;
+}
+
+@media only screen and (min-width: 768px) {
+  .HowToRoute .main {
+    font-size: calc(1vw + 1vh);
+  }
+
+  .HowToRoute .howto-text {
+    text-align: center;
+  }
+
+  .HowToRoute h3 {
+    text-align: center;
+  }
 }

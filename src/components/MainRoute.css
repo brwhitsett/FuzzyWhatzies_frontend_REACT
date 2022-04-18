@@ -1,9 +1,17 @@
+.MainRoute {
+  display: grid;
+  position: relative;
+  margin: 0 12.5%;
+  height: 79vh;
+}
+
 .MainRoute .main-section {
   border: 2px black solid;
   font-family: "Eater", cursive;
   background-color: #f0d2b7;
   margin: 5% 12%;
   padding: 5% 10%;
+  display: grid;
 }
 
 .MainRoute h2 {
@@ -15,7 +23,7 @@
   text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
     3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
     -3px 0 0 #453326;
-  font-family: "Eater", cursive;
+  font-family: "Eater";
   text-align: center;
 }
 
@@ -29,7 +37,6 @@
 }
 
 .MainRoute li {
-  /* border: 2px black solid; */
   box-shadow: #453326;
   list-style: none;
 }
@@ -53,4 +60,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .MainRoute .image-frame {
+    border: 2px black solid;
+    background-color: #63d2ff;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin: 5%;
+    margin-top: 25%;
+    padding: 1% 1%;
+    width: 225px;
+    height: 215px;
+  }
+
+  .MainRoute .main-section {
+    flex: 1;
+    margin: 5%;
+    padding: 5% 10%;
+  }
+
+  .MainRoute .container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .MainRoute .animal-img {
+    width: 230px;
+    height: 225px;
+    position: relative;
+    top: -5px;
+    right: 2px;
+  }
 }
