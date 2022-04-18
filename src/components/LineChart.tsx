@@ -1,6 +1,6 @@
 import "./LineChart.css";
-import { useRef, useEffect, useState } from "react";
-import type { ChartData, ChartArea } from "chart.js";
+import { useContext } from "react";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,86 +10,66 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Chart } from "react-chartjs-2";
-const { faker } = require("@faker-js/faker");
+import { Line } from "react-chartjs-2";
+import Session from "../models/Session";
+import AuthContext from "../context/AuthContext";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend
-);
+export interface Props {
+  userSessions: Session[];
+}
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-const colors = [
-  "red",
-  "orange",
-  "yellow",
-  "lime",
-  "green",
-  "teal",
-  "blue",
-  "purple",
-];
+const LineChart = ({ userSessions }: Props) => {
+  const { user } = useContext(AuthContext);
+  const { faker } = require("@faker-js/faker");
 
-const LineChart = () => {
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Tooltip,
+    Legend
+  );
+
+  const labels = userSessions.filter((userSession, i) => {
+    console.log(i);
+    if (user?.displayName === userSession.displayName) {
+      return i;
+    }
+  });
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: "Chart.js Line Chart",
+      },
+    },
+  };
+
   const data = {
     labels,
     datasets: [
       {
         label: "Dataset 1",
-        data: labels.map(() =>
-          faker.datatype.number({ min: -1000, max: 1000 })
-        ),
+        data: userSessions.map((userSession) => {
+          if (user?.displayName === userSession.displayName) {
+            return userSession.correct / userSession.total;
+          }
+        }),
+
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
     ],
   };
-
-  function createGradient(ctx: CanvasRenderingContext2D, area: ChartArea) {
-    const colorStart = faker.random.arrayElement(colors);
-    const colorMid = faker.random.arrayElement(
-      colors.filter((color) => color !== colorStart)
-    );
-    const colorEnd = faker.random.arrayElement(
-      colors.filter((color) => color !== colorStart && color !== colorMid)
-    );
-
-    const gradient = ctx.createLinearGradient(0, area.bottom, 0, area.top);
-
-    gradient.addColorStop(0, colorStart);
-    gradient.addColorStop(0.5, colorMid);
-    gradient.addColorStop(1, colorEnd);
-
-    return gradient;
-  }
-
-  const chartRef = useRef<ChartJS>(null);
-  const [chartData, setChartData] = useState<ChartData<"bar">>({
-    datasets: [],
-  });
-
-  useEffect(() => {
-    const chart = chartRef.current;
-
-    if (!chart) {
-      return;
-    }
-
-    const chartData = {
-      ...data,
-      datasets: data.datasets.map((dataset) => ({
-        ...dataset,
-        borderColor: createGradient(chart.ctx, chart.chartArea),
-      })),
-    };
-
-    setChartData(chartData);
-  }, []);
   return (
     <div className="LineChart">
-      <Chart ref={chartRef} type="line" data={chartData} />
+      <Line options={options} data={data} />
     </div>
   );
 };
