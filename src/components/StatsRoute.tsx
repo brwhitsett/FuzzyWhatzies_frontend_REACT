@@ -5,6 +5,8 @@ import Session from "../models/Session";
 import User from "../models/User";
 import { getSessionData } from "../services/SessionServices";
 import { getSingleUserData } from "../services/UserServices";
+import LineChart from "./LineChart";
+
 import "./StatsRoute.css";
 
 const StatsRoute = () => {
@@ -53,7 +55,9 @@ const StatsRoute = () => {
         <option value="Insanus">Insanus</option>
         <option value="Total">Total</option>
       </select>
-
+      <div className="lineChart">
+        <LineChart />
+      </div>
       {user ? (
         level === "" || level === "Total" ? (
           <>
