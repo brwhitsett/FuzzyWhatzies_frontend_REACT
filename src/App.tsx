@@ -7,6 +7,7 @@ import {
 import Header from "./components/Header";
 import HowToRoute from "./components/HowToRoute";
 import LeaderBoardRoute from "./components/LeaderBoardRoute";
+
 import MainRoute from "./components/MainRoute";
 import NewGameRoute from "./components/NewGameRoute";
 import StatsRoute from "./components/StatsRoute";
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <Router>
         <Header />
+
         <Routes>
           <Route path="/" element={<MainRoute />} />
           <Route path="/howto" element={<HowToRoute />} />
