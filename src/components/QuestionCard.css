@@ -3,7 +3,6 @@
   color: #fff;
   display: flex;
   justify-content: center;
-  margin: 5px 0;
   text-shadow: -2px -2px 0 #453326, 2px 0px 0 #453326, 0px -2px 0 #453326,
     2px 0 0 #453326, 2px 2px 0 #453326, 0 2px 0 #453326, 0px 2px 0 #453326,
     -2px 0 0 #453326;
@@ -14,7 +13,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 15px;
 }
 
 .QuestionCard form {
@@ -50,20 +48,14 @@
 .QuestionCard .question-container {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
   justify-content: space-between;
-  height: 5vh;
-  margin: 12.5px 0;
-=======
   align-items: center;
   justify-content: space-around;
-  margin: 0.85vh 0;
 }
 
 .QuestionCard .question-asked {
   font-size: calc(1vw + 1vh);
   color: #fff;
-  margin-bottom: 10px;
   text-shadow: -2px -2px 0 #453326, 2px 0px 0 #453326, 0px -2px 0 #453326,
     2px 0 0 #453326, 2px 2px 0 #453326, 0 2px 0 #453326, 0px 2px 0 #453326,
     -2px 0 0 #453326;
@@ -75,7 +67,7 @@
 }
 
 .QuestionCard input {
-  margin: 5px 10px;
+  margin: 10px 10px;
 }
 
 .QuestionCard .text-input {
@@ -84,7 +76,6 @@
 }
 
 .QuestionCard p {
-  margin: 0;
   font-size: calc(1vw + 1vh);
 }
 
@@ -108,7 +99,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
->>>>>>> 1098f3c8ad948ef1c66e86d8cf5ba8e1cf2b74b1
 }
 
 .QuestionCard .whatzie-button {
@@ -131,15 +121,15 @@
   }
 
   .QuestionCard button {
-    height: calc(8vh - 1vw);
+    height: calc(6vh - 1vw);
   }
 }
 
-@media only screen and (max-width: 1000px) {
+/* @media only screen and (max-width: 1000px) {
   .QuestionCard .question-container {
     margin: calc(1vh + 0.5vw) 0;
   }
-}
+} */
 
 @media only screen and (min-width: 1600px) {
   .QuestionCard .flex-div {
@@ -151,8 +141,8 @@
     display: grid;
     grid-template-columns: 1fr;
     width: fit-content;
-    margin-left: 15px;
-    padding-left: 15px;
+    /* margin-left: 15px;
+    padding-left: 15px; */
   }
 
   .QuestionCard img {
@@ -171,9 +161,9 @@
     grid-template-columns: 1fr;
   }
 
-  .QuestionCard .active-container input {
+  /* .QuestionCard .active-container input {
     margin-top: 10px;
-  }
+  } */
 
   .QuestionCard button {
     width: 25vw;

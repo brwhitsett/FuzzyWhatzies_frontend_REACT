@@ -9,7 +9,6 @@ const MainRoute = () => {
   const navigate = useNavigate();
   return (
     <div className="MainRoute">
-      <Header />
       <div className="main-section">
         {user ? (
           <h2>Welcome Back, {user?.displayName}!</h2>
