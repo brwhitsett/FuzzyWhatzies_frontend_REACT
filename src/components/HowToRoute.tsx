@@ -5,7 +5,6 @@ import "./HowToRoute.css";
 const HowToRoute = () => {
   return (
     <div className="HowToRoute">
-      <Header />
       <div className="main">
         <h2 className="how-to">How to Play:</h2>
         <h3>The Goal:</h3>
