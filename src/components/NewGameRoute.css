@@ -1,10 +1,13 @@
 .NewGameRoute {
   display: grid;
-  border: 2px black solid;
   background-color: #f0d2b7;
   position: relative;
   margin: 0 12.5%;
   height: 79vh;
+}
+
+.NewGameRoute .new-game-div {
+  border: 2px solid black;
 }
 
 .NewGameRoute h2 {

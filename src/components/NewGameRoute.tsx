@@ -33,7 +33,7 @@ const NewGameRoute = () => {
             />{" "}
           </>
         ) : (
-          <p></p>
+          <></>
         )}
         <ul>
           {!difficulty && (

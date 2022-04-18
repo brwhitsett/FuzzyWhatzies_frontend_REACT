@@ -24,18 +24,22 @@
 }
 
 .QuestionCard .timer-container {
-  position: absolute;
+  position: fixed;
   background-color: white;
   height: calc(4.5vw + 4.5vh);
   width: calc(4.5vw + 4.5vh);
   border-radius: 50%;
   border: 2px solid black;
-  left: 55vw;
-  bottom: 60vh;
+  top: 13%;
+  left: 9%;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.QuestionCard .timer-container p {
+  font-size: calc(2vh + 2vw);
 }
 
 .QuestionCard img {
@@ -136,10 +140,14 @@
     display: grid;
     grid-template-columns: 1fr;
     width: fit-content;
+    margin-left: 15px;
+    padding-left: 15px;
   }
 
   .QuestionCard img {
-    height: 400px;
+    height: auto;
+    max-height: 400px;
+    max-width: 600px;
   }
 
   .QuestionCard .question-container {
@@ -147,12 +155,16 @@
     padding: 15px 0;
   }
 
-  .QuestionCard button {
-    width: 25vw;
+  .QuestionCard .active-container {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
-  .QuestionCard .timer-container {
-    bottom: 65vh;
-    left: 117vh;
+  .QuestionCard .active-container input {
+    margin-top: 10px;
+  }
+
+  .QuestionCard button {
+    width: 25vw;
   }
 }
