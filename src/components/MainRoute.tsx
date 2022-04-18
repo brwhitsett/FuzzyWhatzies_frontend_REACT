@@ -1,12 +1,26 @@
 import "./MainRoute.css";
 import AuthContext from "../context/AuthContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import Animal from "../models/Animal";
+import { getSingleAnimal } from "../services/AnimalServices";
 
 const MainRoute = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [animal, setAnimal] = useState<Animal>();
+
+  const getAndSetAnimal = () => {
+    getSingleAnimal().then((response) => {
+      setAnimal(response);
+    });
+  };
+
+  useEffect(() => {
+    getAndSetAnimal();
+  }, []);
+
   return (
     <div className="MainRoute">
       <div className="main-section">

@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import HowToRoute from "./components/HowToRoute";
 import LeaderBoardRoute from "./components/LeaderBoardRoute";
 
@@ -18,8 +17,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
-
         <Routes>
           <Route path="/" element={<MainRoute />} />
           <Route path="/howto" element={<HowToRoute />} />
