@@ -39,6 +39,11 @@ const MainRoute = () => {
               Stats
             </button>
           </li>
+          <li>
+            <button className="main-btn" onClick={() => navigate("/aboutus")}>
+              About Us
+            </button>
+          </li>
         </ul>
       </div>
     </div>
