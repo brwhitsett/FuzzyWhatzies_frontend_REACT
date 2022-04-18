@@ -3,6 +3,9 @@
   color: #fff;
   display: flex;
   justify-content: center;
+  text-shadow: -2px -2px 0 #453326, 2px 0px 0 #453326, 0px -2px 0 #453326,
+    2px 0 0 #453326, 2px 2px 0 #453326, 0 2px 0 #453326, 0px 2px 0 #453326,
+    -2px 0 0 #453326;
   margin: 5px 0;
   text-shadow: #453326 3px 0px 0px, #453326 2.83487px 0.981584px 0px,
     #453326 2.35766px 1.85511px 0px, #453326 1.62091px 2.52441px 0px,
@@ -21,7 +24,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 15px;
 }
 
 .QuestionCard form {
@@ -57,14 +59,19 @@
 .QuestionCard .question-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   justify-content: space-around;
-  margin: 0.85vh 0;
 }
 
 .QuestionCard .question-asked {
   font-size: calc(1vw + 1vh);
   color: #fff;
+
+  text-shadow: -2px -2px 0 #453326, 2px 0px 0 #453326, 0px -2px 0 #453326,
+    2px 0 0 #453326, 2px 2px 0 #453326, 0 2px 0 #453326, 0px 2px 0 #453326,
+    -2px 0 0 #453326;
+
   margin-bottom: 10px;
   text-shadow: #453326 3px 0px 0px, #453326 2.83487px 0.981584px 0px,
     #453326 2.35766px 1.85511px 0px, #453326 1.62091px 2.52441px 0px,
@@ -76,6 +83,7 @@
     #453326 -0.137119px -2.99686px 0px, #453326 0.850987px -2.87677px 0px,
     #453326 1.74541px -2.43999px 0px, #453326 2.44769px -1.73459px 0px,
     #453326 2.88051px -0.838247px 0px;
+
 }
 
 .QuestionCard label {
@@ -84,7 +92,7 @@
 }
 
 .QuestionCard input {
-  margin: 5px 10px;
+  margin: 10px 10px;
 }
 
 .QuestionCard .text-input {
@@ -93,7 +101,6 @@
 }
 
 .QuestionCard p {
-  margin: 0;
   font-size: calc(1vw + 1vh);
 }
 
@@ -139,15 +146,15 @@
   }
 
   .QuestionCard button {
-    height: calc(8vh - 1vw);
+    height: calc(6vh - 1vw);
   }
 }
 
-@media only screen and (max-width: 1000px) {
+/* @media only screen and (max-width: 1000px) {
   .QuestionCard .question-container {
     margin: calc(1vh + 0.5vw) 0;
   }
-}
+} */
 
 @media only screen and (min-width: 1600px) {
   .QuestionCard .flex-div {
@@ -159,8 +166,8 @@
     display: grid;
     grid-template-columns: 1fr;
     width: fit-content;
-    margin-left: 15px;
-    padding-left: 15px;
+    /* margin-left: 15px;
+    padding-left: 15px; */
   }
 
   .QuestionCard img {
@@ -179,9 +186,9 @@
     grid-template-columns: 1fr;
   }
 
-  .QuestionCard .active-container input {
+  /* .QuestionCard .active-container input {
     margin-top: 10px;
-  }
+  } */
 
   .QuestionCard button {
     width: 25vw;

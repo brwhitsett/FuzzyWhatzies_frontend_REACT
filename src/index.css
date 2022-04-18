@@ -21,6 +21,12 @@ ul {
   /* Eater is used in Header.css */
 }
 
+html {
+  background: url(../public/assets/green-leaf-background.png);
+
+  background-size: cover;
+}
+
 .index {
   display: flex;
   align-items: center;
