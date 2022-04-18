@@ -1,20 +1,20 @@
-.QuestionCard {
-  height: 100%;
-}
-
-.QuestionCard .animal-img-game-set-container {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-}
-
 .QuestionCard .gameSettingsBar {
   font-size: 16px;
   color: #fff;
+  display: flex;
+  justify-content: center;
   margin: 5px 0;
   text-shadow: -2px -2px 0 #453326, 2px 0px 0 #453326, 0px -2px 0 #453326,
     2px 0 0 #453326, 2px 2px 0 #453326, 0 2px 0 #453326, 0px 2px 0 #453326,
     -2px 0 0 #453326;
+}
+
+.QuestionCard .game-settings-img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
 }
 
 .QuestionCard form {
@@ -26,13 +26,13 @@
 .QuestionCard .timer-container {
   position: absolute;
   background-color: white;
-  height: calc(3.5vw + 3.5vh);
-  width: calc(3.5vw + 3.5vh);
+  height: calc(4.5vw + 4.5vh);
+  width: calc(4.5vw + 4.5vh);
   border-radius: 50%;
   border: 2px solid black;
+  left: 55vw;
+  bottom: 60vh;
   z-index: 1;
-  left: 82%;
-  top: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin: 10px 0;
+  margin: 0.85vh 0;
 }
 
 .QuestionCard .question-asked {
@@ -91,7 +91,7 @@
 
 .QuestionCard button {
   height: calc(7vh - 1vw);
-  /* width: 30vw; */
+  width: 30vw;
   font-size: 24px;
 }
 
@@ -120,25 +120,16 @@
   }
 }
 
+@media only screen and (max-width: 1000px) {
+  .QuestionCard .question-container {
+    margin: calc(1vh + 0.5vw) 0;
+  }
+}
+
 @media only screen and (min-width: 1600px) {
-  .QuestionCard {
-    display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    /* height: 79vh; */
-  }
-
-  .QuestionCard .animal-img-game-set-container {
-    display: flex;
-    flex-direction: column;
-    padding: 0 5px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .QuestionCard img {
-    height: 400px;
-    margin-top: 25px;
+  .QuestionCard .flex-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .QuestionCard form {
@@ -147,13 +138,21 @@
     width: fit-content;
   }
 
+  .QuestionCard img {
+    height: 400px;
+  }
+
   .QuestionCard .question-container {
-    margin: 15px 0 15px 0;
-    padding: 15px 0 15px 0;
-    border: #453326 solid 3px;
+    margin: 15px 0;
+    padding: 15px 0;
   }
 
   .QuestionCard button {
     width: 25vw;
+  }
+
+  .QuestionCard .timer-container {
+    bottom: 65vh;
+    left: 117vh;
   }
 }

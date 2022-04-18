@@ -144,18 +144,17 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
 
   return (
     <div className="QuestionCard">
-      <div className="animal-img-game-set-container">
-        <p className="gameSettingsBar">
-          Game Setting: {difficulty} - {speed}
-        </p>
-
-        <img src={animal?.image_link} alt={animal?.diet} />
-      </div>
-      <form onSubmit={submitHandler}>
-        <div className="desktop-flex-container">
-          <div className="timer-container">
-            {speed === "Unlimited" ? <p>∞</p> : <p>{timerRemaining}</p>}
-          </div>
+      <div className="flex-div">
+        <div className="game-settings-img-container">
+          <p className="gameSettingsBar">
+            {difficulty} - {speed} - Correct: {correct} - Total: {total}
+          </p>
+          <img src={animal?.image_link} alt={animal?.diet} />
+        </div>
+        <div className="timer-container">
+          {speed === "Unlimited" ? <p>∞</p> : <p>{timerRemaining}</p>}
+        </div>
+        <form onSubmit={submitHandler}>
           {/* Animal name */}
           <div className="animal-name-question question-container">
             <label className="question-asked" htmlFor="name">
@@ -322,8 +321,8 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
               End Session
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };
