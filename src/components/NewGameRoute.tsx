@@ -24,6 +24,7 @@ const NewGameRoute = () => {
 
   return (
     <div className="NewGameRoute">
+      <Header />
       <div className="new-game-div">
         {!speed ? (
           <>
