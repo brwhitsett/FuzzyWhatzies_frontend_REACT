@@ -43,8 +43,7 @@ const Footer = () => {
       {randNum === 2 && (
         <>
           <h3>
-            The {animal?.name}'s favorite food is/are{" "}
-            {animal?.diet.toLowerCase()}
+            The {animal?.name}'s favorite food is/are {animal?.diet}
           </h3>
         </>
       )}
@@ -58,7 +57,7 @@ const Footer = () => {
       {randNum === 4 && (
         <>
           <h3>
-            The {animal?.name}'s Habitat is {animal?.habitat.toLowerCase()}
+            The {animal?.name}'s Habitat is {animal?.habitat}
           </h3>
         </>
       )}
