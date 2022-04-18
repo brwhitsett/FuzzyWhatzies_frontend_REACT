@@ -50,6 +50,11 @@
 .QuestionCard .question-container {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
+  justify-content: space-between;
+  height: 5vh;
+  margin: 12.5px 0;
+=======
   align-items: center;
   justify-content: space-around;
   margin: 0.85vh 0;
@@ -103,6 +108,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+>>>>>>> 1098f3c8ad948ef1c66e86d8cf5ba8e1cf2b74b1
+}
+
+.QuestionCard .whatzie-button {
+  background-color: #80a453;
+  font-size: calc(1.75vw + 1.75vh);
 }
 
 .QuestionCard .endSession-button {

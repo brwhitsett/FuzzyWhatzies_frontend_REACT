@@ -1,3 +1,11 @@
+.NewGameRoute .main {
+  border: 2px black solid;
+  font-family: "Eater";
+  background-color: #f0d2b7;
+  margin: 5% 12%;
+  padding: 5% 10%;
+}
+
 .NewGameRoute {
   display: grid;
   background-color: #f0d2b7;
@@ -39,6 +47,11 @@
   list-style: none;
 }
 
+.NewGameRoute .game-btn {
+  height: 7vh;
+  width: 40vw;
+  font-size: calc(1.75vw + 1.75vh);
+}
 .NewGameRoute button {
   font-size: calc(1.5vw + 1.5vh);
   color: #fff;

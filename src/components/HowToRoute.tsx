@@ -1,13 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 import "./HowToRoute.css";
 
 const HowToRoute = () => {
-  const navigate = useNavigate();
   return (
     <div className="HowToRoute">
-      <button className="back-btn" onClick={() => navigate("/")}>
-        Back
-      </button>
+      <Header />
       <div className="main">
         <h2 className="how-to">How to Play:</h2>
         <h3>The Goal:</h3>

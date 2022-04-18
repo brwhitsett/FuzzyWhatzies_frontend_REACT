@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 import Animal from "../models/Animal";
 import { getSingleAnimal } from "../services/AnimalServices";
 import "./NewGameRoute.css";
@@ -30,7 +31,7 @@ const NewGameRoute = () => {
               className="desktop-img"
               src={animal?.image_link}
               alt={animal?.diet}
-            />{" "}
+            />
           </>
         ) : (
           <></>
@@ -49,19 +50,37 @@ const NewGameRoute = () => {
           {!difficulty && (
             <>
               <li>
-                <button onClick={() => setDifficulty("Easy")}>Easy</button>
+                <button
+                  className="game-btn"
+                  onClick={() => setDifficulty("Easy")}
+                >
+                  Easy
+                </button>
               </li>
               <p>Animal Type</p>
               <li>
-                <button onClick={() => setDifficulty("Medium")}>Medium</button>
+                <button
+                  className="game-btn"
+                  onClick={() => setDifficulty("Medium")}
+                >
+                  Medium
+                </button>
               </li>
               <p>Easy + Active Time</p>
               <li>
-                <button onClick={() => setDifficulty("Hard")}>Hard</button>
+                <button
+                  className="game-btn"
+                  onClick={() => setDifficulty("Hard")}
+                >
+                  Hard
+                </button>
               </li>
               <p>Medium + Name</p>
               <li>
-                <button onClick={() => setDifficulty("Insanus")}>
+                <button
+                  className="game-btn"
+                  onClick={() => setDifficulty("Insanus")}
+                >
                   Insanus
                 </button>
               </li>
@@ -71,19 +90,37 @@ const NewGameRoute = () => {
           {!speed && difficulty && (
             <>
               <li>
-                <button onClick={() => setSpeed("Unlimited")}>Unlimited</button>
+                <button
+                  className="game-btn"
+                  onClick={() => setSpeed("Unlimited")}
+                >
+                  Unlimited
+                </button>
               </li>
               <p>No Time Limit</p>
               <li>
-                <button onClick={() => setSpeed("Tortoise")}>Tortoise</button>
+                <button
+                  className="game-btn"
+                  onClick={() => setSpeed("Tortoise")}
+                >
+                  Tortoise
+                </button>
               </li>
               <p>45 Second Time Limit</p>
               <li>
-                <button onClick={() => setSpeed("Cheetah")}>Cheetah</button>
+                <button
+                  className="game-btn"
+                  onClick={() => setSpeed("Cheetah")}
+                >
+                  Cheetah
+                </button>
               </li>
               <p>30 Second Time Limit</p>
               <li>
-                <button onClick={() => setSpeed("Peregrine Falcon")}>
+                <button
+                  className="game-btn"
+                  onClick={() => setSpeed("Peregrine Falcon")}
+                >
                   Peregrine Falcon
                 </button>
               </li>

@@ -4,6 +4,7 @@ import AuthContext from "../context/AuthContext";
 import Session from "../models/Session";
 import User from "../models/User";
 import { getSessionData } from "../services/SessionServices";
+import Header from "./Header";
 import { getSingleUserData } from "../services/UserServices";
 import "./StatsRoute.css";
 
@@ -34,9 +35,7 @@ const StatsRoute = () => {
 
   return (
     <div className="StatsRoute">
-      <button className="back-btn" onClick={() => navigate("/")}>
-        Back
-      </button>
+      <Header />
       <select
         className="difficulty-dropdown"
         name="difficulty-dropdown"
