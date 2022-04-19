@@ -36,78 +36,79 @@ const LeaderBoardRoute = () => {
   return (
     <div className="LeaderBoardRoute">
       <Header />
-      <select
-        className="difficulty-dropdown"
-        name="difficulty-dropdown"
-        id="difficulty-dropdown"
-        onChange={(e) => setLevel(e.target.value)}
-        value={level}
-      >
-        <option value="" disabled selected hidden>
-          Difficulty
-        </option>
-        <option value="Easy"> Easy</option>
-        <option value="Medium">Medium</option>
-        <option value="Hard">Hard</option>
-        <option value="Insanus">Insanus</option>
-        <option value="Total">Total</option>
-      </select>
-      <h2>Lifetime Total Questions Correct</h2>
+      <div className="main">
+        <select
+          className="difficulty-dropdown"
+          name="difficulty-dropdown"
+          id="difficulty-dropdown"
+          onChange={(e) => setLevel(e.target.value)}
+          value={level}
+        >
+          <option value="" disabled selected hidden>
+            Difficulty
+          </option>
+          <option value="Easy"> Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+          <option value="Insanus">Insanus</option>
+          <option value="Total">Total</option>
+        </select>
+        {level === "" ? "" : <h2>Lifetime Total Questions Correct</h2>}
+        <ol className="questions-data">
+          {user &&
+            level === "Easy" &&
+            userScores
+              .sort((a, b) => {
+                return a.eC - b.eC;
+              })
+              .map((userScore) => <EasyScore userScore={userScore} />)
+              .reverse()}
+          {user &&
+            level === "Medium" &&
+            userScores
+              .sort((a, b) => {
+                return a.mC - b.mC;
+              })
+              .map((userScore) => <MediumScore userScore={userScore} />)
+              .reverse()}
+          {user &&
+            level === "Hard" &&
+            userScores
+              .sort((a, b) => {
+                return a.hC - b.hC;
+              })
+              .map((userScore) => <HardScore userScore={userScore} />)
+              .reverse()}
+          {user &&
+            level === "Insanus" &&
+            userScores
+              .sort((a, b) => {
+                return a.iC - b.iC;
+              })
+              .map((userScore) => <InsanusScore userScore={userScore} />)
+              .reverse()}
+          {user &&
+            level === "Total" &&
+            userScores
+              .sort((a, b) => {
+                return a.tC - b.tC;
+              })
+              .map((userScore) => <Score userScore={userScore} />)
+              .reverse()}
+        </ol>
 
-      <ol>
-        {user &&
-          level === "Easy" &&
-          userScores
+        <h2>Lifetime % Correct</h2>
+        <ol className="percent-data">
+          {userPercentScores
             .sort((a, b) => {
-              return a.eC - b.eC;
+              return a.tC / a.tT - b.tC / b.tT;
             })
-            .map((userScore) => <EasyScore userScore={userScore} />)
+            .map((userPercentScore) => (
+              <PercentScore userPercentScore={userPercentScore} />
+            ))
             .reverse()}
-        {user &&
-          level === "Medium" &&
-          userScores
-            .sort((a, b) => {
-              return a.mC - b.mC;
-            })
-            .map((userScore) => <MediumScore userScore={userScore} />)
-            .reverse()}
-        {user &&
-          level === "Hard" &&
-          userScores
-            .sort((a, b) => {
-              return a.hC - b.hC;
-            })
-            .map((userScore) => <HardScore userScore={userScore} />)
-            .reverse()}
-        {user &&
-          level === "Insanus" &&
-          userScores
-            .sort((a, b) => {
-              return a.iC - b.iC;
-            })
-            .map((userScore) => <InsanusScore userScore={userScore} />)
-            .reverse()}
-        {user &&
-          level === "Total" &&
-          userScores
-            .sort((a, b) => {
-              return a.tC - b.tC;
-            })
-            .map((userScore) => <Score userScore={userScore} />)
-            .reverse()}
-      </ol>
-
-      <h2>Lifetime % Correct</h2>
-      <ol>
-        {userPercentScores
-          .sort((a, b) => {
-            return a.tC / a.tT - b.tC / b.tT;
-          })
-          .map((userPercentScore) => (
-            <PercentScore userPercentScore={userPercentScore} />
-          ))
-          .reverse()}
-      </ol>
+        </ol>
+      </div>
     </div>
   );
 };
