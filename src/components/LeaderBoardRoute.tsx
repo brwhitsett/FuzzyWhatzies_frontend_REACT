@@ -27,7 +27,6 @@ const LeaderBoardRoute = () => {
       setUserPercentScores(response);
     });
   };
-
   useEffect(() => {
     getAndSetUserScores().then(() => {});
     console.log(getAndSetUserScores());
@@ -56,70 +55,46 @@ const LeaderBoardRoute = () => {
       <h2>Lifetime Total Questions Correct</h2>
 
       <ol>
-        {user && level === "Easy"
-          ? userScores
-              .sort((a, b) => {
-                return a.eC - b.eC;
-              })
-              .map((userScore) => <EasyScore userScore={userScore} />)
-              .reverse()
-          : <h2 className="easy-prompt">Sign In</h2> &&
-            "total-prompt" &&
-            !"medium-prompt" &&
-            !"hard-prompt" &&
-            !"insanus-prompt"}
-      </ol>
-
-      <ol>
-        {user && level === "Medium" ? (
+        {user &&
+          level === "Easy" &&
+          userScores
+            .sort((a, b) => {
+              return a.eC - b.eC;
+            })
+            .map((userScore) => <EasyScore userScore={userScore} />)
+            .reverse()}
+        {user &&
+          level === "Medium" &&
           userScores
             .sort((a, b) => {
               return a.mC - b.mC;
             })
             .map((userScore) => <MediumScore userScore={userScore} />)
-            .reverse()
-        ) : (
-          <h2 className="medium-prompt">Sign In</h2>
-        )}
-      </ol>
-
-      <ol>
-        {user && level === "Hard" ? (
+            .reverse()}
+        {user &&
+          level === "Hard" &&
           userScores
             .sort((a, b) => {
               return a.hC - b.hC;
             })
             .map((userScore) => <HardScore userScore={userScore} />)
-            .reverse()
-        ) : (
-          <h2 className="hard-prompt">Sign In</h2>
-        )}
-      </ol>
-
-      <ol>
-        {user && level === "Insanus" ? (
+            .reverse()}
+        {user &&
+          level === "Insanus" &&
           userScores
             .sort((a, b) => {
               return a.iC - b.iC;
             })
             .map((userScore) => <InsanusScore userScore={userScore} />)
-            .reverse()
-        ) : (
-          <h2 className="insanus-prompt">Sign In</h2>
-        )}
-      </ol>
-
-      <ol>
-        {user && level === "Total" ? (
+            .reverse()}
+        {user &&
+          level === "Total" &&
           userScores
             .sort((a, b) => {
               return a.tC - b.tC;
             })
             .map((userScore) => <Score userScore={userScore} />)
-            .reverse()
-        ) : (
-          <h2 className="total-prompt">Sign In</h2>
-        )}
+            .reverse()}
       </ol>
 
       <h2>Lifetime % Correct</h2>
