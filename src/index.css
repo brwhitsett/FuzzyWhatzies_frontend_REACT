@@ -21,7 +21,7 @@ ul {
   /* Eater is used in Header.css */
 }
 
-html {
+body {
   background: url(../public/assets/green-leaf-background.png);
   background-size: cover;
 }

@@ -1,21 +1,8 @@
-.NewGameRoute .new-game-div {
-  border: 2px black solid;
-  font-family: "Eater";
-  background-color: #f0d2b7;
-  margin: 5% 12%;
-  padding: 5% 10%;
-}
-
 .NewGameRoute {
-  display: grid;
-  /* background-color: #f0d2b7;  */
+  background-color: #f0d2b7;
   position: relative;
   margin: 0 12.5%;
-  height: 79vh;
-}
-
-.NewGameRoute .new-game-div {
-  border: 2px solid black;
+  height: 73vh;
 }
 
 .NewGameRoute h2 {
@@ -24,17 +11,10 @@
   text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
     3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
     -3px 0 0 #453326;
-  display: flex;
-  justify-content: center;
-}
-
-.NewGameRoute .whatzie-header {
-  display: none;
 }
 
 .NewGameRoute h3 {
   font-size: calc(1.5vw + 1.5vh);
-  margin: 0;
   color: #b56639;
 }
 
@@ -42,79 +22,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 25px;
 }
 
 .NewGameRoute li {
   list-style: none;
 }
 
-/* .NewGameRoute .game-btn {
-  height: 7vh;
-  width: 40vw;
-  font-size: calc(1.75vw + 1.75vh);
-  background-color: #80a453;
-  color: white;
-  text-shadow: black 3px 0px 0px, black 2.83487px 0.981584px 0px,
-    black 2.35766px 1.85511px 0px, black 1.62091px 2.52441px 0px,
-    black 0.705713px 2.91581px 0px, black -0.287171px 2.98622px 0px,
-    black -1.24844px 2.72789px 0px, black -2.07227px 2.16926px 0px,
-    black -2.66798px 1.37182px 0px, black -2.96998px 0.42336px 0px,
-    black -2.94502px -0.571704px 0px, black -2.59586px -1.50383px 0px,
-    black -1.96093px -2.27041px 0px, black -1.11013px -2.78704px 0px,
-    black -0.137119px -2.99686px 0px, black 0.850987px -2.87677px 0px,
-    black 1.74541px -2.43999px 0px, black 2.44769px -1.73459px 0px,
-    black 2.88051px -0.838247px 0px;
-} */
 .NewGameRoute .game-btn {
+  height: 55px;
+  width: 40vw;
   font-size: calc(1.5vw + 1.5vh);
   color: #fff;
-  text-shadow: black 3px 0px 0px, black 2.83487px 0.981584px 0px,
-    black 2.35766px 1.85511px 0px, black 1.62091px 2.52441px 0px,
-    black 0.705713px 2.91581px 0px, black -0.287171px 2.98622px 0px,
-    black -1.24844px 2.72789px 0px, black -2.07227px 2.16926px 0px,
-    black -2.66798px 1.37182px 0px, black -2.96998px 0.42336px 0px,
-    black -2.94502px -0.571704px 0px, black -2.59586px -1.50383px 0px,
-    black -1.96093px -2.27041px 0px, black -1.11013px -2.78704px 0px,
-    black -0.137119px -2.99686px 0px, black 0.850987px -2.87677px 0px,
-    black 1.74541px -2.43999px 0px, black 2.44769px -1.73459px 0px,
-    black 2.88051px -0.838247px 0px;
+  text-shadow: -3px -3px 0 #453326, 3px 0px 0 #453326, 0px -3px 0 #453326,
+    3px 0 0 #453326, 3px 3px 0 #453326, 0 3px 0 #453326, 0px 3px 0 #453326,
+    -3px 0 0 #453326;
   background-color: #80a453;
-  height: 6vh;
-  width: 50vw;
-  margin: 10px 0;
 }
 
 .NewGameRoute p {
   font-size: calc(0.75vw + 0.75vh);
   color: #b56639;
-  margin: 10px 0;
 }
 
 .NewGameRoute .desktop-img {
   display: none;
 }
 
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: 768px) {
   .NewGameRoute {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .NewGameRoute .desktop-img {
     display: block;
-    max-height: 450px;
-    max-width: 450px;
+    height: auto;
+    max-height: calc(12vh + 12vw);
   }
 
   .NewGameRoute button {
     width: 35vw;
-  }
-
-  .NewGameRoute .new-game-div {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
   }
 }
