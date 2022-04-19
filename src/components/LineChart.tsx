@@ -17,9 +17,22 @@ import AuthContext from "../context/AuthContext";
 export interface Props {
   userSessions: Session[];
   level: string;
+  displayNameSessions: Session[];
+  easySessions: Session[];
+  mediumSessions: Session[];
+  hardSessions: Session[];
+  insanusSessions: Session[];
 }
 
-const LineChart = ({ userSessions, level }: Props) => {
+const LineChart = ({
+  userSessions,
+  level,
+  displayNameSessions,
+  easySessions,
+  mediumSessions,
+  hardSessions,
+  insanusSessions,
+}: Props) => {
   const { user } = useContext(AuthContext);
 
   ChartJS.register(
@@ -72,13 +85,14 @@ const LineChart = ({ userSessions, level }: Props) => {
     datasets: [
       {
         label: "Last 6 Sessions",
-        data: userSessions
+        data: displayNameSessions
           .map((userSession) => {
             if (user?.displayName === userSession.displayName) {
               return userSession.correct / userSession.total;
             }
           })
-          .slice(0, 6),
+          .slice(0, 6)
+          .reverse(),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
@@ -90,7 +104,7 @@ const LineChart = ({ userSessions, level }: Props) => {
     datasets: [
       {
         label: "Last 6 Sessions",
-        data: userSessions
+        data: easySessions
           .map((userSession) => {
             if (
               user?.displayName === userSession.displayName &&
@@ -99,7 +113,8 @@ const LineChart = ({ userSessions, level }: Props) => {
               return userSession.correct / userSession.total;
             }
           })
-          .slice(0, 6),
+          .slice(0, 6)
+          .reverse(),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
@@ -111,14 +126,17 @@ const LineChart = ({ userSessions, level }: Props) => {
     datasets: [
       {
         label: "Last 6 Sessions",
-        data: userSessions.map((userSession) => {
-          if (
-            user?.displayName === userSession.displayName &&
-            userSession.difficulty === "Medium"
-          ) {
-            return userSession.correct / userSession.total;
-          }
-        }),
+        data: mediumSessions
+          .map((userSession) => {
+            if (
+              user?.displayName === userSession.displayName &&
+              userSession.difficulty === "Medium"
+            ) {
+              return userSession.correct / userSession.total;
+            }
+          })
+          .slice(0, 6)
+          .reverse(),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
@@ -130,14 +148,17 @@ const LineChart = ({ userSessions, level }: Props) => {
     datasets: [
       {
         label: "Last 6 Sessions",
-        data: userSessions.map((userSession) => {
-          if (
-            user?.displayName === userSession.displayName &&
-            userSession.difficulty === "Hard"
-          ) {
-            return userSession.correct / userSession.total;
-          }
-        }),
+        data: hardSessions
+          .map((userSession) => {
+            if (
+              user?.displayName === userSession.displayName &&
+              userSession.difficulty === "Hard"
+            ) {
+              return userSession.correct / userSession.total;
+            }
+          })
+          .slice(0, 6)
+          .reverse(),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
@@ -149,14 +170,17 @@ const LineChart = ({ userSessions, level }: Props) => {
     datasets: [
       {
         label: "Last 6 Sessions",
-        data: userSessions.map((userSession) => {
-          if (
-            user?.displayName === userSession.displayName &&
-            userSession.difficulty === "Insanus"
-          ) {
-            return userSession.correct / userSession.total;
-          }
-        }),
+        data: insanusSessions
+          .map((userSession) => {
+            if (
+              user?.displayName === userSession.displayName &&
+              userSession.difficulty === "Insanus"
+            ) {
+              return userSession.correct / userSession.total;
+            }
+          })
+          .slice(0, 6)
+          .reverse(),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
