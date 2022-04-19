@@ -16,7 +16,7 @@
   font-weight: bold;
 }
 
-h2.sessions {
+.StatsRoute h2 .sessions {
   border: 1px solid black;
   background-color: yellow;
   padding-top: 10px;
@@ -80,8 +80,10 @@ h2.game-history {
   z-index: 2;
 }
 .StatsRoute {
-  background: url(../../public/assets/green-leaf-background.png);
-  height: 100vh;
+  display: grid;
+  position: relative;
+  margin: 0 12.5%;
+  height: 79vh;
 }
 
 .session-area {
