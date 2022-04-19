@@ -1,8 +1,10 @@
 .NewGameRoute {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   background-color: #f0d2b7;
-  position: relative;
   margin: 0 12.5%;
-  height: 73vh;
+  height: 80vh;
 }
 
 .NewGameRoute h2 {
@@ -19,9 +21,12 @@
 }
 
 .NewGameRoute ul {
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+  margin-top: 25px;
 }
 
 .NewGameRoute li {
@@ -49,11 +54,6 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .NewGameRoute {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
   .NewGameRoute .desktop-img {
     display: block;
     height: auto;
