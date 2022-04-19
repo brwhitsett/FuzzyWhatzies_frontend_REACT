@@ -26,6 +26,11 @@
   align-items: center;
 }
 
+.QuestionCard .game-settings-img-container p {
+  font-size: calc(0.75vw + 0.75vh);
+  padding-bottom: 15px;
+}
+
 .QuestionCard form {
   display: flex;
   flex-direction: column;
@@ -54,6 +59,7 @@
 .QuestionCard img {
   height: 200px;
   border: #453326 solid 2px;
+  margin-bottom: 25px;
 }
 
 .QuestionCard .question-container {
@@ -117,6 +123,7 @@
   height: calc(7vh - 1vw);
   width: 30vw;
   font-size: 24px;
+  margin-bottom: 25px;
 }
 
 .QuestionCard .button-container {
@@ -134,7 +141,7 @@
   background-color: #a45353;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 1250px) {
   .QuestionCard .animal-type-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -170,6 +177,7 @@
   }
 
   .QuestionCard img {
+    display: block;
     height: auto;
     max-height: calc(12vh + 12vw);
   }
