@@ -17,6 +17,27 @@ const StatsRoute = () => {
   const [userScore, setUserScore] = useState<User>();
   const { user } = useContext(AuthContext);
 
+  const displayNameSessions = userSessions.filter(
+    (userSession) => userSession.displayName === user?.displayName
+  );
+  console.log(displayNameSessions);
+
+  const easySessions = displayNameSessions.filter(
+    (easySession) => easySession.difficulty === "Easy"
+  );
+
+  const mediumSessions = displayNameSessions.filter(
+    (easySession) => easySession.difficulty === "Medium"
+  );
+
+  const hardSessions = displayNameSessions.filter(
+    (easySession) => easySession.difficulty === "Hard"
+  );
+
+  const insanusSessions = displayNameSessions.filter(
+    (easySession) => easySession.difficulty === "Insanus"
+  );
+
   const getAndSetUserSessions = async () => {
     getSessionData().then((response) => {
       setUserSessions(response);
@@ -38,6 +59,7 @@ const StatsRoute = () => {
   return (
     <div className="StatsRoute">
       <Header />
+      <h2 className="lineChart-h2">Last 6 Sessions</h2>
       <select
         className="difficulty-dropdown"
         name="difficulty-dropdown"
@@ -55,7 +77,15 @@ const StatsRoute = () => {
         <option value="Total">Total</option>
       </select>
       <div className="lineChart">
-        <LineChart userSessions={userSessions} />
+        <LineChart
+          userSessions={userSessions}
+          level={level}
+          displayNameSessions={displayNameSessions}
+          easySessions={easySessions}
+          mediumSessions={mediumSessions}
+          hardSessions={hardSessions}
+          insanusSessions={insanusSessions}
+        />
       </div>
       {user ? (
         level === "" || level === "Total" ? (
