@@ -56,10 +56,11 @@
     black -0.137119px -2.99686px 0px, black 0.850987px -2.87677px 0px,
     black 1.74541px -2.43999px 0px, black 2.44769px -1.73459px 0px,
     black 2.88051px -0.838247px 0px;
-  list-style: none;
+  background-color: #80a453;
+  /* list-style: none; */
 }
 
-.MainRoute button {
+/* .MainRoute .main-btn {
   height: 55px;
   width: 40vw;
   font-size: calc(1.5vw + 1.5vh);
@@ -71,7 +72,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 @media only screen and (min-width: 768px) {
   .MainRoute .image-frame {
@@ -83,8 +84,8 @@
     margin: 5%;
     margin-top: 25%;
     padding: 1% 1%;
-    width: 225px;
-    height: 215px;
+    width: 250px;
+    height: 240px;
   }
 
   .MainRoute .main-section {
@@ -103,6 +104,6 @@
     height: 225px;
     position: relative;
     top: -5px;
-    right: 2px;
+    right: 1px;
   }
 }
