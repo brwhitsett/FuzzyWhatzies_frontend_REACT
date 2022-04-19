@@ -322,7 +322,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
             )}
           </div>
           <div className="button-container">
-            <button className="whatzie-button">Whatsie!</button>
+            <button className="whatzie-button">Whatzie!</button>
             <button className="endSession-button" onClick={endSession}>
               End Session
             </button>
