@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Header from "./Header";
 import Animal from "../models/Animal";
 import { getSingleAnimal } from "../services/AnimalServices";
 import "./NewGameRoute.css";
@@ -10,7 +8,6 @@ const NewGameRoute = () => {
   const [difficulty, setDifficulty] = useState("");
   const [speed, setSpeed] = useState("");
   const [animal, setAnimal] = useState<Animal>();
-  const navigate = useNavigate();
 
   const getAndSetAnimal = () => {
     getSingleAnimal().then((response) => {
@@ -24,6 +21,9 @@ const NewGameRoute = () => {
 
   return (
     <div className="NewGameRoute">
+      {difficulty && speed && (
+        <QuestionCard difficulty={difficulty} speed={speed} />
+      )}
       {!difficulty && (
         <>
           <h3>Select Difficulty</h3>
@@ -43,9 +43,6 @@ const NewGameRoute = () => {
               alt={animal?.diet}
             />
           </>
-        )}
-        {difficulty && speed && (
-          <QuestionCard difficulty={difficulty} speed={speed} />
         )}
 
         <ul>

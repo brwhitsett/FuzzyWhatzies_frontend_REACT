@@ -16,7 +16,6 @@
   text-shadow: -2px -2px 0 #453326, 2px 0px 0 #453326, 0px -2px 0 #453326,
     2px 0 0 #453326, 2px 2px 0 #453326, 0 2px 0 #453326, 0px 2px 0 #453326,
     -2px 0 0 #453326;
-  margin: 5px 0;
   text-shadow: #453326 3px 0px 0px, #453326 2.83487px 0.981584px 0px,
     #453326 2.35766px 1.85511px 0px, #453326 1.62091px 2.52441px 0px,
     #453326 0.705713px 2.91581px 0px, #453326 -0.287171px 2.98622px 0px,
@@ -38,11 +37,6 @@
 
 .QuestionCard .game-settings-img-container p {
   font-size: calc(0.75vw + 0.75vh);
-}
-
-.QuestionCard form {
-  margin: 3vh 0;
-  /* padding-bottom: 3vh; */
 }
 
 .QuestionCard .timer-container {
@@ -68,7 +62,7 @@
   height: 200px;
   border: #453326 solid 2px;
   box-shadow: 2px 2px 5px #453326;
-
+  transition: all 0.6s ease;
   border-radius: 21px;
 }
 
@@ -77,13 +71,11 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 10px 0;
 }
 
 .QuestionCard .question-asked {
   font-size: calc(1vw + 1vh);
   color: #fff;
-
   text-shadow: #453326 3px 0px 0px, #453326 2.83487px 0.981584px 0px,
     #453326 2.35766px 1.85511px 0px, #453326 1.62091px 2.52441px 0px,
     #453326 0.705713px 2.91581px 0px, #453326 -0.287171px 2.98622px 0px,
@@ -102,8 +94,8 @@
 }
 
 .QuestionCard .text-input {
-  width: 35vw;
-  height: 2.5vh;
+  width: 30vw;
+  height: 3.5vh;
 }
 
 .QuestionCard p {
@@ -175,22 +167,11 @@
   }
 }
 
-/* @media only screen and (max-width: 1000px) {
-  .QuestionCard .question-container {
-    margin: calc(1vh + 0.5vw) 0;
-  }
-} */
-
 @media only screen and (min-width: 768px) {
   .QuestionCard .flex-div {
     display: flex;
     justify-content: space-around;
   }
-
-  /* .QuestionCard form {
-    width: fit-content;
-    /* margin-left: 15px;
-    padding-left: 15px; */
 
   .QuestionCard img {
     display: block;
@@ -198,22 +179,14 @@
     max-height: calc(12vh + 12vw);
   }
 
-  .QuestionCard .text-input {
+  /* .QuestionCard .text-input {
     width: 30vw;
-  }
-
-  .QuestionCard .question-container {
-    padding: 10px 0;
-  }
+  } */
 
   .QuestionCard .active-container {
     display: grid;
     grid-template-columns: 1fr;
   }
-
-  /* .QuestionCard .active-container input {
-    margin-top: 10px;
-  } */
 
   .QuestionCard button {
     width: 25vw;
