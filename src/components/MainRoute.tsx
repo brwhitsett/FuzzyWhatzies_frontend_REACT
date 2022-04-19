@@ -28,37 +28,44 @@ const MainRoute = () => {
           <h2>Welcome Back, {user?.displayName}!</h2>
         ) : (
           <h2>Sign In to Play!</h2>
-        )}
-        <ul>
-          <li>
-            <button className="main-btn" onClick={() => navigate("/game")}>
-              New Game
-            </button>
-          </li>
-          <li>
-            <button className="main-btn" onClick={() => navigate("/howto")}>
-              How To Play
-            </button>
-          </li>
-          <li>
-            <button
-              className="main-btn"
-              onClick={() => navigate("/leaderboard")}
-            >
-              Leaderboard
-            </button>
-          </li>
-          <li>
-            <button className="main-btn" onClick={() => navigate("/stats")}>
-              Stats
-            </button>
-          </li>
-          <li>
-            <button className="main-btn" onClick={() => navigate("/aboutus")}>
-              About Us
-            </button>
-          </li>
-        </ul>
+        )}{" "}
+        <div className="btn-and-image">
+          <ul>
+            <li>
+              <button className="main-btn" onClick={() => navigate("/game")}>
+                New Game
+              </button>
+            </li>
+            <li>
+              <button className="main-btn" onClick={() => navigate("/howto")}>
+                How To Play
+              </button>
+            </li>
+            <li>
+              <button
+                className="main-btn"
+                onClick={() => navigate("/leaderboard")}
+              >
+                Leaderboard
+              </button>
+            </li>
+            <li>
+              <button className="main-btn" onClick={() => navigate("/stats")}>
+                Stats
+              </button>
+            </li>
+            <li>
+              <button className="main-btn" onClick={() => navigate("/aboutus")}>
+                About Us
+              </button>
+            </li>
+          </ul>
+          <img
+            className="animal-img"
+            src={animal?.image_link}
+            alt={animal?.name}
+          />
+        </div>
       </div>
     </div>
   );

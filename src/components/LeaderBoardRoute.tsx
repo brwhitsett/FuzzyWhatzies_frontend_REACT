@@ -35,7 +35,6 @@ const LeaderBoardRoute = () => {
 
   return (
     <div className="LeaderBoardRoute">
-      <Header />
       <div className="main">
         <select
           className="difficulty-dropdown"
