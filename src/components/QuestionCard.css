@@ -83,7 +83,6 @@
     #453326 -0.137119px -2.99686px 0px, #453326 0.850987px -2.87677px 0px,
     #453326 1.74541px -2.43999px 0px, #453326 2.44769px -1.73459px 0px,
     #453326 2.88051px -0.838247px 0px;
-
 }
 
 .QuestionCard label {
@@ -156,7 +155,7 @@
   }
 } */
 
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: 768px) {
   .QuestionCard .flex-div {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -172,13 +171,12 @@
 
   .QuestionCard img {
     height: auto;
-    max-height: 400px;
-    max-width: 600px;
+    max-height: calc(12vh + 12vw);
   }
 
   .QuestionCard .question-container {
-    margin: 15px 0;
-    padding: 15px 0;
+    margin: 10px 0;
+    padding: 10px 0;
   }
 
   .QuestionCard .active-container {
