@@ -16,11 +16,11 @@ import AuthContext from "../context/AuthContext";
 
 export interface Props {
   userSessions: Session[];
+  level: string;
 }
 
-const LineChart = ({ userSessions }: Props) => {
+const LineChart = ({ userSessions, level }: Props) => {
   const { user } = useContext(AuthContext);
-  const { faker } = require("@faker-js/faker");
 
   ChartJS.register(
     CategoryScale,
@@ -31,15 +31,31 @@ const LineChart = ({ userSessions }: Props) => {
     Legend
   );
 
-  const labels = userSessions.filter((userSession, i) => {
-    console.log(i);
-    if (user?.displayName === userSession.displayName) {
-      return i;
-    }
-  });
+  const labels = [
+    "Session 1",
+    "Session 2",
+    "Session 3",
+    "Session 4",
+    "Session 5",
+    "Session 6",
+  ];
 
   const options = {
+    scales: { x: { ticks: { display: false } } },
     responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: "Chart.js Line Chart",
+      },
+    },
+  };
+  const optionsEasy = {
+    responsive: true,
+
     plugins: {
       legend: {
         position: "top" as const,
@@ -55,21 +71,113 @@ const LineChart = ({ userSessions }: Props) => {
     labels,
     datasets: [
       {
-        label: "Dataset 1",
-        data: userSessions.map((userSession) => {
-          if (user?.displayName === userSession.displayName) {
-            return userSession.correct / userSession.total;
-          }
-        }),
-
+        label: "Last 6 Sessions",
+        data: userSessions
+          .map((userSession) => {
+            if (user?.displayName === userSession.displayName) {
+              return userSession.correct / userSession.total;
+            }
+          })
+          .slice(0, 6),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
     ],
   };
+
+  const easyData = {
+    labels,
+    datasets: [
+      {
+        label: "Last 6 Sessions",
+        data: userSessions
+          .map((userSession) => {
+            if (
+              user?.displayName === userSession.displayName &&
+              userSession.difficulty === "Easy"
+            ) {
+              return userSession.correct / userSession.total;
+            }
+          })
+          .slice(0, 6),
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
+
+  const mediumData = {
+    labels,
+    datasets: [
+      {
+        label: "Last 6 Sessions",
+        data: userSessions.map((userSession) => {
+          if (
+            user?.displayName === userSession.displayName &&
+            userSession.difficulty === "Medium"
+          ) {
+            return userSession.correct / userSession.total;
+          }
+        }),
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
+
+  const hardData = {
+    labels,
+    datasets: [
+      {
+        label: "Last 6 Sessions",
+        data: userSessions.map((userSession) => {
+          if (
+            user?.displayName === userSession.displayName &&
+            userSession.difficulty === "Hard"
+          ) {
+            return userSession.correct / userSession.total;
+          }
+        }),
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
+
+  const insanusData = {
+    labels,
+    datasets: [
+      {
+        label: "Last 6 Sessions",
+        data: userSessions.map((userSession) => {
+          if (
+            user?.displayName === userSession.displayName &&
+            userSession.difficulty === "Insanus"
+          ) {
+            return userSession.correct / userSession.total;
+          }
+        }),
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
+
   return (
     <div className="LineChart">
-      <Line options={options} data={data} />
+      {level === "" ? (
+        <Line options={options} data={data} />
+      ) : level === "Easy" ? (
+        <Line options={options} data={easyData} />
+      ) : level === "Medium" ? (
+        <Line options={options} data={mediumData} />
+      ) : level === "Hard" ? (
+        <Line options={options} data={hardData} />
+      ) : level === "Insanus" ? (
+        <Line options={options} data={insanusData} />
+      ) : (
+        <Line options={options} data={data} />
+      )}
     </div>
   );
 };

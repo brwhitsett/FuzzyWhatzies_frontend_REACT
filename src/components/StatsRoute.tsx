@@ -38,6 +38,7 @@ const StatsRoute = () => {
   return (
     <div className="StatsRoute">
       <Header />
+      <h2 className="lineChart-h2">Last 6 Sessions</h2>
       <select
         className="difficulty-dropdown"
         name="difficulty-dropdown"
@@ -55,7 +56,7 @@ const StatsRoute = () => {
         <option value="Total">Total</option>
       </select>
       <div className="lineChart">
-        <LineChart userSessions={userSessions} />
+        <LineChart userSessions={userSessions} level={level} />
       </div>
       {user ? (
         level === "" || level === "Total" ? (

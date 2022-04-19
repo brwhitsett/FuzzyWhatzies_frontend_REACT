@@ -3,6 +3,10 @@
   margin-top: 45px;
 }
 
+.lineChart-h2 {
+  display: none;
+}
+
 .StatsRoute .difficulty-dropdown {
   position: absolute;
   left: 62%;
@@ -114,5 +118,13 @@ h2.game-history {
   }
   .gamehistory-area {
     display: none;
+  }
+
+  h2.game-history {
+    display: none;
+  }
+
+  .lineChart-h2 {
+    display: block;
   }
 }
