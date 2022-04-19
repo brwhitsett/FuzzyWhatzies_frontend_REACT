@@ -152,7 +152,13 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
           <img src={animal?.image_link} alt={animal?.diet} />
         </div>
         <div className="timer-container">
-          {speed === "Unlimited" ? <p>∞</p> : <p>{timerRemaining}</p>}
+          {speed === "Unlimited" ? (
+            <p>∞</p>
+          ) : (
+            <p style={timerRemaining! >= 5 ? {} : { color: "red" }}>
+              {timerRemaining}
+            </p>
+          )}
         </div>
         <form onSubmit={submitHandler}>
           {/* Animal name */}
