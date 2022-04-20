@@ -10,6 +10,7 @@ import MediumScore from "./MediumScore";
 import HardScore from "./HardScore";
 import InsanusScore from "./InsanusScore";
 import EasyScore from "./EasyScore";
+import { displayPartsToString } from "typescript";
 const LeaderBoardRoute = () => {
   const [userScores, setUserScores] = useState<User[]>([]);
   const { user } = useContext(AuthContext);
@@ -52,65 +53,123 @@ const LeaderBoardRoute = () => {
           <option value="Insanus">Insanus</option>
           <option value="Total">Total</option>
         </select>
-        {level === "" ? (
-          ""
-        ) : (
-          <h2 className="lifetime-correct">Lifetime Total Questions Correct</h2>
-        )}
-        <ol className="questions-data">
-          {user &&
-            level === "Easy" &&
-            userScores
-              .sort((a, b) => {
-                return a.eC - b.eC;
-              })
-              .map((userScore) => <EasyScore userScore={userScore} />)
-              .reverse()}
-          {user &&
-            level === "Medium" &&
-            userScores
-              .sort((a, b) => {
-                return a.mC - b.mC;
-              })
-              .map((userScore) => <MediumScore userScore={userScore} />)
-              .reverse()}
-          {user &&
-            level === "Hard" &&
-            userScores
-              .sort((a, b) => {
-                return a.hC - b.hC;
-              })
-              .map((userScore) => <HardScore userScore={userScore} />)
-              .reverse()}
-          {user &&
-            level === "Insanus" &&
-            userScores
-              .sort((a, b) => {
-                return a.iC - b.iC;
-              })
-              .map((userScore) => <InsanusScore userScore={userScore} />)
-              .reverse()}
-          {user &&
-            level === "Total" &&
-            userScores
-              .sort((a, b) => {
-                return a.tC - b.tC;
-              })
-              .map((userScore) => <Score userScore={userScore} />)
-              .reverse()}
-        </ol>
+        <div className="difficultyandscores-container">
+          <div className="percentData-container">
+            <ol className="percent-data">
+              <h2 className="lifetime-percent">Lifetime % Correct</h2>
+              {userPercentScores
+                .sort((a, b) => {
+                  return a.tC / a.tT - b.tC / b.tT;
+                })
+                .map((userPercentScore) => (
+                  <PercentScore userPercentScore={userPercentScore} />
+                ))
+                .reverse()}
+            </ol>
+          </div>
 
-        <h2 className="lifetime-percent">Lifetime % Correct</h2>
-        <ol className="percent-data">
-          {userPercentScores
-            .sort((a, b) => {
-              return a.tC / a.tT - b.tC / b.tT;
-            })
-            .map((userPercentScore) => (
-              <PercentScore userPercentScore={userPercentScore} />
-            ))
-            .reverse()}
-        </ol>
+          {level === "" ? (
+            <>
+              <ol className="questions-data">
+                <>
+                  <h2 className="lifetime-correct">
+                    Lifetime Total Questions Correct
+                  </h2>
+                </>
+                {userScores
+                  .sort((a, b) => {
+                    return a.tC - b.tC;
+                  })
+                  .map((userScore) => <Score userScore={userScore} />)
+                  .reverse()}
+              </ol>
+            </>
+          ) : (
+            <>
+              <ol className="questions-data">
+                {user && level === "Easy" && (
+                  <>
+                    <h2 className="lifetime-correct">
+                      Lifetime Easy Questions Correct
+                    </h2>
+                    {userScores
+                      .sort((a, b) => {
+                        return a.eC - b.eC;
+                      })
+                      .map((userScore) => <EasyScore userScore={userScore} />)
+                      .reverse()}
+                  </>
+                )}
+
+                <>
+                  {user && level === "Medium" && (
+                    <>
+                      <h2 className="lifetime-correct">
+                        Lifetime Medium Questions Correct
+                      </h2>
+                      {userScores
+                        .sort((a, b) => {
+                          return a.mC - b.mC;
+                        })
+                        .map((userScore) => (
+                          <MediumScore userScore={userScore} />
+                        ))
+                        .reverse()}
+                    </>
+                  )}
+                </>
+                <>
+                  {user && level === "Hard" && (
+                    <>
+                      <h2 className="lifetime-correct">
+                        Lifetime Hard Questions Correct
+                      </h2>
+                      {userScores
+                        .sort((a, b) => {
+                          return a.hC - b.hC;
+                        })
+                        .map((userScore) => <HardScore userScore={userScore} />)
+                        .reverse()}
+                    </>
+                  )}
+                </>
+                <>
+                  {user && level === "Insanus" && (
+                    <>
+                      {" "}
+                      <h2 className="lifetime-correct">
+                        Lifetime Insanus Questions Correct
+                      </h2>
+                      {userScores
+                        .sort((a, b) => {
+                          return a.iC - b.iC;
+                        })
+                        .map((userScore) => (
+                          <InsanusScore userScore={userScore} />
+                        ))
+                        .reverse()}
+                    </>
+                  )}
+                </>
+                <>
+                  {user && level === "Total" && (
+                    <>
+                      <h2 className="lifetime-correct">
+                        Lifetime Total Questions Correct
+                      </h2>
+                      {userScores
+                        .sort((a, b) => {
+                          return a.tC - b.tC;
+                        })
+                        .map((userScore) => <Score userScore={userScore} />)
+                        .reverse()}
+                    </>
+                  )}
+                </>
+              </ol>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
