@@ -9,20 +9,20 @@
   margin-top: 45px;
 }
 
-.lineChart-h2 {
+.StatsRoute .lineChart-h2 {
   display: none;
 }
 
 .StatsRoute .difficulty-dropdown {
   position: absolute;
-  left: 52%;
-  top: 20%;
+  left: 90%;
+  top: 1%;
   border: none;
   font-weight: bold;
   font-size: 18px;
 }
 
-.lineChart {
+.StatsRoute .lineChart {
   display: none;
 }
 
@@ -67,7 +67,7 @@
   width: 110%;
 }
 
-h2.game-history {
+.StatsRoute .game-history {
   border: 1px solid black;
   background-color: yellow;
   padding-top: 10px;
@@ -79,6 +79,18 @@ h2.game-history {
   z-index: 3;
   top: 2%;
   left: 15%;
+}
+
+.StatsRoute .sessions {
+  border: 1px solid black;
+  background-color: yellow;
+  padding-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  width: 70%;
+  height: 50px;
+  position: absolute;
+  top: -2%;
 }
 
 .gamehistory-area {
@@ -121,21 +133,30 @@ h2.game-history {
 }
 
 @media only screen and (min-width: 768px) {
+  .StatsRoute {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: ;
+  }
+
   .session-area {
     display: none;
   }
 
-  .lineChart {
+  .StatsRoute .lineChart {
     padding: 10%;
     display: block;
     position: relative;
+    top: -7%;
     z-index: 2;
     background: url(../../public/assets/leopard-background.png);
     background-size: cover;
-    margin-top: 3vh;
+    /* margin-top: 3vh; */
     border: 2px #453326 solid;
     box-shadow: 2px 2px 5px #453326;
     border-radius: 21px;
+    height: 40vh;
   }
 
   .gamehistory-area {
@@ -152,7 +173,7 @@ h2.game-history {
 
   .StatsRoute .difficulty-dropdown {
     position: absolute;
-    left: 72%;
-    top: 10%;
+    left: 85%;
+    top: 5%;
   }
 }
