@@ -58,7 +58,6 @@ const StatsRoute = () => {
 
   return (
     <div className="StatsRoute">
-      <Header />
       <h2 className="lineChart-h2">Last 6 Sessions</h2>
       <select
         className="difficulty-dropdown"
