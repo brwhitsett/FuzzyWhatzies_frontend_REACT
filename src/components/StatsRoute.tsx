@@ -155,7 +155,7 @@ const StatsRoute = () => {
       )}
       <div className="session-area">
         {level === "" ? (
-          <h2 className="sessions">Last 3 Sessions</h2>
+          <h2 className="sessions">Saved Sessions</h2>
         ) : (
           <h2 className="sessions">Sessions</h2>
         )}
@@ -183,9 +183,9 @@ const StatsRoute = () => {
                         </li>
                       )
                   )
-                  .slice(0, 3)
                   .reverse()
-              : userSessions
+              : // .slice(0, 3)
+                userSessions
                   .map(
                     (userSession) =>
                       user.displayName === userSession.displayName &&

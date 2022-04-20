@@ -54,7 +54,21 @@ const LineChart = ({
   ];
 
   const options = {
-    scales: { x: { ticks: { display: false } } },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
+      },
+    },
+
+    borderWidth: 5,
+
     responsive: true,
     plugins: {
       legend: {
@@ -95,6 +109,7 @@ const LineChart = ({
           .reverse(),
         borderColor: "#59d6de",
         backgroundColor: "#59d6de",
+        borderWidth: 5,
       },
     ],
   };
