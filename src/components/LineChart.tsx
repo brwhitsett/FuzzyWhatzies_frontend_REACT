@@ -93,8 +93,8 @@ const LineChart = ({
           })
           .slice(0, 6)
           .reverse(),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "#59d6de",
+        backgroundColor: "#59d6de",
       },
     ],
   };
@@ -115,8 +115,8 @@ const LineChart = ({
           })
           .slice(0, 6)
           .reverse(),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "#59d6de",
+        backgroundColor: "#59d6de",
       },
     ],
   };
@@ -137,8 +137,8 @@ const LineChart = ({
           })
           .slice(0, 6)
           .reverse(),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "#59d6de",
+        backgroundColor: "#59d6de",
       },
     ],
   };
@@ -159,8 +159,8 @@ const LineChart = ({
           })
           .slice(0, 6)
           .reverse(),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "#59d6de",
+        backgroundColor: "#59d6de",
       },
     ],
   };
@@ -181,8 +181,8 @@ const LineChart = ({
           })
           .slice(0, 6)
           .reverse(),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "#59d6de",
+        backgroundColor: "#59d6de",
       },
     ],
   };
