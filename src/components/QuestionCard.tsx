@@ -176,6 +176,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                   type="text"
                   name="name"
                   id="name"
+                  autoComplete="off"
                   placeholder="Enter Animal's Full Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -317,6 +318,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
               <div className="input-highlight">
                 <input
                   type="text"
+                  autoComplete="off"
                   name="latin_name"
                   id="latin_name"
                   value={latinName}

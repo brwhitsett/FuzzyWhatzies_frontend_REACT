@@ -23,12 +23,9 @@ const Header = () => {
     <header className="Header">
       <div className="google">
         {user ? (
-          <div>
-            <p className="username">{user.displayName}</p>
-            <button className="google-btn head-btn" onClick={signOut}>
-              Sign Out
-            </button>
-          </div>
+          <button className="google-btn head-btn" onClick={signOut}>
+            Sign Out
+          </button>
         ) : (
           <button className="google-btn head-btn" onClick={signInWithGoogle}>
             Sign In
@@ -38,19 +35,16 @@ const Header = () => {
           Back
         </button>
       </div>
-
       <Link className="header-link" to="/">
-        <div className="title-border">
-          <h1>
-            <div className="circle">
-              <i className="fa-solid fa-paw"></i>
-            </div>
+        <div className="header-container">
+          <div className="circle">
+            <i className="fa-solid fa-paw"></i>
+          </div>
 
-            <div className="fuzzy-whatzies">
-              <p className="fuzzy"> Fuzzy </p>
-              <p className="whatzies"> WHATZIES </p>
-            </div>
-          </h1>
+          <div className="fuzzy-whatzies">
+            <h1 className="fuzzy"> Fuzzy </h1>
+            <h1 className="whatzies"> WHATZIES </h1>
+          </div>
         </div>
       </Link>
     </header>
