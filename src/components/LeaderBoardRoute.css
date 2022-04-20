@@ -1,12 +1,17 @@
+.LeaderBoardRoute {
+  height: 100vh;
+  display: grid;
+  margin: 0 6%;
+}
+
 .LeaderBoardRoute .questions-data,
 .percent-data {
-  border: 1px solid black;
-  background-color: #f0d2b7;
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: url(../../public/assets/leopard-background.png);
+  background-size: cover;
+  margin-top: 3vh;
+  border: 2px #453326 solid;
+  box-shadow: 2px 2px 5px #453326;
+  border-radius: 21px;
 }
 
 .LeaderBoardRoute .main {
@@ -22,5 +27,37 @@
   width: 60%;
   align-items: center;
   text-align: center;
-  margin-bottom: -15px;
+  margin-bottom: -20px;
+  z-index: 1;
+  border: 1px #453326 solid;
+  border-radius: 21px;
+}
+
+.LeaderBoardRoute .difficulty-dropdown {
+  background-color: none;
+  position: relative;
+  left: 225px;
+  top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.LeaderBoardRoute .lifetime-percent {
+  margin-top: 20px;
+}
+
+.LeaderBoardRoute p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.LeaderBoardRoute .percent-data {
+  padding-bottom: 2vh;
+}
+
+@media only screen and (min-width: 768px) {
+  .LeaderBoardRoute .main {
+    /* HEADING AND DATA CONTAINERS NEED TO BE IN DIVS TO MAKE THIS WORK */
+  }
 }
