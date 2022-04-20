@@ -171,11 +171,12 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                 <p>{animal?.name}</p>
               </div>
             ) : (
-              <div>
+              <div className="input-highlight">
                 <input
                   type="text"
                   name="name"
                   id="name"
+                  placeholder="Enter Animal's Full Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="text-input"
@@ -313,12 +314,13 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
               What is this Animal's Latin name?
             </label>
             {difficulty === "Insanus" ? (
-              <div>
+              <div className="input-highlight">
                 <input
                   type="text"
                   name="latin_name"
                   id="latin_name"
                   value={latinName}
+                  placeholder="Enter Latin Name"
                   onChange={(e) => setLatinName(e.target.value)}
                   className="text-input"
                 />
