@@ -52,7 +52,11 @@ const LeaderBoardRoute = () => {
           <option value="Insanus">Insanus</option>
           <option value="Total">Total</option>
         </select>
-        {level === "" ? "" : <h2>Lifetime Total Questions Correct</h2>}
+        {level === "" ? (
+          ""
+        ) : (
+          <h2 className="lifetime-correct">Lifetime Total Questions Correct</h2>
+        )}
         <ol className="questions-data">
           {user &&
             level === "Easy" &&
@@ -96,7 +100,7 @@ const LeaderBoardRoute = () => {
               .reverse()}
         </ol>
 
-        <h2>Lifetime % Correct</h2>
+        <h2 className="lifetime-percent">Lifetime % Correct</h2>
         <ol className="percent-data">
           {userPercentScores
             .sort((a, b) => {
