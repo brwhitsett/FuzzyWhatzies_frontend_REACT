@@ -1,20 +1,20 @@
 .NewGameRoute {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   background: url(../../public/assets/leopard-background.png);
   background-size: cover;
   border: 2px #453326 solid;
   box-shadow: 2px 2px 5px #453326;
   border-radius: 21px;
   margin: 3vh 6% 0 6%;
-  height: 65vh;
+  height: 70vh;
 }
 
 .NewGameRoute h3 {
   color: #b56639;
   font-size: calc(2.5vw + 2.5vh);
-  margin-bottom: 3vh;
+  margin-bottom: 6vh;
   text-shadow: #453326 3px 0px 0px, #453326 2.83487px 0.981584px 0px,
     #453326 2.35766px 1.85511px 0px, #453326 1.62091px 2.52441px 0px,
     #453326 0.705713px 2.91581px 0px, #453326 -0.287171px 2.98622px 0px,
@@ -38,6 +38,7 @@
 
 .NewGameRoute li {
   list-style: none;
+  margin: 1vh 0;
 }
 
 .NewGameRoute .game-btn {
@@ -85,6 +86,18 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .NewGameRoute {
+    justify-content: space-around;
+  }
+
+  .NewGameRoute h3 {
+    margin: 0;
+  }
+
+  .NewGameRoute .settings-and-img-container {
+    margin-top: -10vh;
+  }
+
   .NewGameRoute .desktop-img {
     display: block;
     border-radius: 50%;
@@ -99,7 +112,7 @@
 
   .NewGameRoute .settings-and-img-container {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     justify-content: space-around;
   }
 }
