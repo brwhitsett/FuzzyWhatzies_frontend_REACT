@@ -33,6 +33,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 2vh 0;
 }
 
 .QuestionCard .game-settings-img-container p {
@@ -71,6 +72,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin: 1vh 0;
 }
 
 .QuestionCard .question-asked {
@@ -91,6 +93,16 @@
 .QuestionCard label {
   font-size: calc(1vw + 1vh);
   font-weight: 600;
+  text-shadow: #fff 1px 0px 0px, #fff 1.83487px 0.981584px 0px,
+    #fff 1.35766px 1.85511px 0px, #fff 0.62091px 1.52441px 0px,
+    #fff 0.705713px 1.91581px 0px, #fff -0.287171px 1.98622px 0px,
+    #fff -1.24844px 2.72789px 0px, #fff -2.07227px 2.16926px 0px,
+    #fff -1.66798px 1.37182px 0px, #fff -2.96998px 0.42336px 0px,
+    #fff -1.94502px -0.571704px 0px, #fff -2.59586px -1.50383px 0px,
+    #fff -1.96093px -1.27041px 0px, #fff -1.11013px -2.78704px 0px,
+    #fff -0.137119px -2.99686px 0px, #fff 0.850987px -2.87677px 0px,
+    #fff 1.74541px -1.43999px 0px, #fff 2.44769px -1.73459px 0px,
+    #fff 2.88051px -0.838247px 0px;
 }
 
 .QuestionCard .text-input {
@@ -100,6 +112,12 @@
 
 .QuestionCard p {
   font-size: calc(1vw + 1vh);
+  margin: 0.5vh 0;
+}
+
+.QuestionCard .radio-input {
+  margin: 0.75vh 1vw;
+  font-weight: 800;
 }
 
 .QuestionCard .animal-type-container {
@@ -134,7 +152,7 @@
 
 .QuestionCard .button-container {
   display: flex;
-
+  margin-top: 1vh;
   justify-content: space-around;
   align-items: center;
 }
@@ -146,6 +164,7 @@
 
 .QuestionCard .endSession-button {
   background-color: #a45353;
+  font-size: calc(1.4vw + 1.4vh);
 }
 
 @media only screen and (max-width: 1250px) {
@@ -165,6 +184,15 @@
   .QuestionCard .game-settings-img-container {
     justify-content: center;
   }
+
+  .QuestionCard label {
+    margin-bottom: 0.25vh;
+    font-size: calc(1vw + 1vh);
+  }
+
+  .QuestionCard .question-asked {
+    font-size: calc(1vw + 1vh);
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -179,20 +207,44 @@
     max-height: calc(12vh + 12vw);
   }
 
-  /* .QuestionCard .text-input {
-    width: 30vw;
-  } */
+  .QuestionCard form {
+    background: url(../../public/assets/green-leaf-background.png);
+    background-size: cover;
+    border: 2px black solid;
+    border-radius: 21px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px #453326;
+  }
+
+  .QuestionCard .question-container {
+    margin-top: 3vh;
+  }
+
+  .QuestionCard .question-asked {
+    font-size: calc(0.75vw + 0.75vh);
+  }
 
   .QuestionCard .active-container {
     display: grid;
     grid-template-columns: 1fr;
   }
 
+  .QuestionCard label {
+    margin-bottom: 0.25vh;
+    font-size: calc(0.75vw + 0.75vh);
+  }
+
+  .QuestionCard .text-input {
+    margin-top: 1vh;
+  }
+
   .QuestionCard button {
     width: 25vw;
+    margin-top: 3vh;
   }
   .QuestionCard .button-container {
     flex-direction: column;
     align-items: center;
+    margin-top: 1vh;
   }
 }

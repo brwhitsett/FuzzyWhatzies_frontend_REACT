@@ -195,6 +195,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                   value="Amphibian"
                   checked={type === "Amphibian"}
                   onChange={(e) => setType(e.target.value)}
+                  className="radio-input"
                 />
                 Amphibian{" "}
               </label>
@@ -206,6 +207,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                   value="Bird"
                   checked={type === "Bird"}
                   onChange={(e) => setType(e.target.value)}
+                  className="radio-input"
                 />
                 Bird{" "}
               </label>
@@ -218,6 +220,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                   value="Fish"
                   checked={type === "Fish"}
                   onChange={(e) => setType(e.target.value)}
+                  className="radio-input"
                 />
                 Fish{" "}
               </label>
@@ -230,6 +233,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                   value="Mammal"
                   checked={type === "Mammal"}
                   onChange={(e) => setType(e.target.value)}
+                  className="radio-input"
                 />
                 Mammal{" "}
               </label>
@@ -242,6 +246,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                   value="Marsupial"
                   checked={type === "Marsupial"}
                   onChange={(e) => setType(e.target.value)}
+                  className="radio-input"
                 />
                 Marsupial{" "}
               </label>
@@ -254,6 +259,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                   value="Reptile"
                   checked={type === "Reptile"}
                   onChange={(e) => setType(e.target.value)}
+                  className="radio-input"
                 />
                 Reptile{" "}
               </label>
@@ -280,6 +286,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                     value="Diurnal"
                     checked={active === "Diurnal"}
                     onChange={(e) => setActive(e.target.value)}
+                    className="radio-input"
                   />
                   Diurnal (Daytime)
                 </label>
@@ -293,6 +300,7 @@ const QuestionCard = ({ difficulty, speed }: Props) => {
                     value="Nocturnal"
                     checked={active === "Nocturnal"}
                     onChange={(e) => setActive(e.target.value)}
+                    className="radio-input"
                   />
                   Nocturnal (Nighttime)
                 </label>
