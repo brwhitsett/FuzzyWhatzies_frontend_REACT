@@ -3,11 +3,13 @@ import "./AboutUs.css";
 const AboutUs = () => {
   return (
     <div className="AboutUs">
-      {" "}
       <div className="main-container">
         <h2>Our Team</h2>
         <h3>Brittany Whitsett</h3>
-        <p>Brittany is Awesome!</p>
+        <p>
+          Brittany is best described as a mom, a gamer, a student, and now a
+          future web developer.
+        </p>
         <h3>Dusan Momcilovic</h3>
         <p>
           Wanna give special thanks to my wife Sarah and soon to arrive baby
