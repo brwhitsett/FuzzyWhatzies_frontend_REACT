@@ -12,13 +12,10 @@ const AboutUs = () => {
         </p>
         <h3>Dusan Momcilovic</h3>
         <p>
-          Wanna give special thanks to my wife Sarah and soon to arrive baby
-          daughter Petra!
+          Dusan wanted to give special thanks to his wife Sarah and soon to
+          arrive baby daughter Petra!
         </p>
-        <p>
-          Also couldn't have done this without my amazing group members Brittany
-          and Steve!
-        </p>
+
         <h3>Steve Anderson</h3>
         <p>Steve was present for at least some of the project</p>
         <ul>
